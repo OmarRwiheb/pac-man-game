@@ -5,6 +5,11 @@ from Modules.mobs import Player
 #initializes some standard pygame classes
 pygame.init()
 
+# change game icon and name
+pygame.display.set_caption("PAC-MAN")
+icon = pygame.image.load("Resources\\icon.png")
+pygame.display.set_icon(icon)
+
 #makes a level and player instance
 level = Level()
 player = Player()
@@ -25,12 +30,12 @@ while running:
     for event in pygame.event.get():
         #quits when user presses the X
         if event.type == pygame.QUIT:
-            pygame.quit()
+            running = False
         #detects keyboard presses
         elif event.type == pygame.KEYDOWN:
             #exits if user presses the escape button
             if event.key == pygame.K_ESCAPE:
-                pygame.quit()
+                running = False
         #generates a dictionary which contains all the buttons currently pressed
         pressed = pygame.key.get_pressed()
 
