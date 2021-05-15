@@ -30,14 +30,41 @@ class Player(pygame.sprite.Sprite):
 
         #(0,0) is the upper left corner, on game start pacman is moved 10 units right and down so he doesn't get stuck in the wall
         self.rect.move_ip(10, 10)
-        
+    
+    
+    #Portal handling functions 
+    #return true if the x-coordinate of pacman corresponds to the right portal
+    def AtRightPortal(self):
+        return self.rect.x < -30
 
+    #return true if the x-coordinate of pacman corresponds to the left portal
+    def AtLeftPortal(self):
+        return self.rect.x > 460
+    
+    #move pacman to the right portal
+    def SpawnAtRightPortal(self):
+        self.rect.x=-20
+        self.rect.y =219
+        
+    #move pacman to the left portal
+    def SpawnAtLeftPortal(self):
+        self.rect.x = 445
+        self.rect.y = 219
+        
     #defines the move function used to control pacman
     def move(self, direction, lvl):
 
+        #if pac went into the right portal spawn him at the left portal
+        if self.AtRightPortal():
+            self.SpawnAtLeftPortal()
+            
+        #if pac went into the left portal spawn him at the right portal    
+        if self.AtLeftPortal():
+            self.SpawnAtRightPortal()
+           
+            
         #4 blocks of code
-        #each one corresponds to a direction
-        
+        #each one corresponds to a direction 
         #up direction
         if direction == "u":
             #moves pacman from his current position one step in the negative Y-axis 
