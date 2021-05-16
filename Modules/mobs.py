@@ -14,7 +14,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         
         #how many pixels pacman moves per frame
-        self.speed = 4
+        self.speed = 5
 
         #a custom pygame event (id=5) to update pacman
         self.UPDATE = pygame.USEREVENT + 5
@@ -42,25 +42,25 @@ class Player(pygame.sprite.Sprite):
         #each one corresponds to a direction 
         #up direction
         if direction == "u":
-            self.rect.move_ip(0, -5)
+            self.rect.move_ip(0, -self.speed)
             self.current_direction = "u"
             self.update_animation()
 
         #down direction
         elif direction == "d":
-            self.rect.move_ip(0, 5)
+            self.rect.move_ip(0, self.speed)
             self.current_direction = "d"
             self.update_animation()
 
         #left direction
         elif direction == "l":
-            self.rect.move_ip(-5, 0)
+            self.rect.move_ip(-self.speed, 0)
             self.current_direction = "l"
             self.update_animation()
 
         #right direction
         elif direction == "r":
-            self.rect.move_ip(5, 0)
+            self.rect.move_ip(self.speed, 0)
             self.current_direction = "r"
             self.update_animation()
 
