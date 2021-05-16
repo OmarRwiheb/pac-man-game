@@ -1,7 +1,9 @@
 import pygame
 
+
 #defines the player (pacman) class
 class Player(pygame.sprite.Sprite):
+
     #initializes pacman on game start
     def __init__(self):
         super(Player, self).__init__()
@@ -30,108 +32,39 @@ class Player(pygame.sprite.Sprite):
 
         #(0,0) is the upper left corner, on game start pacman is moved 10 units right and down so he doesn't get stuck in the wall
         self.rect.move_ip(10, 10)
-    
-    
-    #Portal handling functions 
-    #return true if the x-coordinate of pacman corresponds to the right portal
-    def AtRightPortal(self):
-        return self.rect.x < -30
-
-    #return true if the x-coordinate of pacman corresponds to the left portal
-    def AtLeftPortal(self):
-        return self.rect.x > 460
-    
-    #move pacman to the right portal
-    def SpawnAtRightPortal(self):
-        self.rect.x=-20
-        self.rect.y =219
-        
-    #move pacman to the left portal
-    def SpawnAtLeftPortal(self):
-        self.rect.x = 445
-        self.rect.y = 219
         
     #defines the move function used to control pacman
     def move(self, direction, lvl):
 
-        #if pac went into the right portal spawn him at the left portal
-        if self.AtRightPortal():
-            self.SpawnAtLeftPortal()
-            
-        #if pac went into the left portal spawn him at the right portal    
-        if self.AtLeftPortal():
-            self.SpawnAtRightPortal()
-           
-            
+        self.check_portal()
+
         #4 blocks of code
         #each one corresponds to a direction 
         #up direction
         if direction == "u":
-            #moves pacman from his current position one step in the negative Y-axis 
-            self.rect.move_ip(0, -self.speed)
-            
-            #checks if the new position collides with a wall
-            if lvl.check_collision(self):
-                #moves in the opposite direction until there is no longer collision 
-                while lvl.check_collision(self):
-                    self.rect.move_ip(0, 1)
-
-                #moves pac 2 units away from the wall to prevent buggy behavior
-                self.rect.move_ip(0, 2)
-
-            elif self.current_direction != "":
-                self.update_animation()
-
+            self.rect.move_ip(0, -5)
             self.current_direction = "u"
+            self.update_animation()
 
         #down direction
         elif direction == "d":
-
-            self.rect.move_ip(0, self.speed)
-            if lvl.check_collision(self):
-
-                while lvl.check_collision(self):
-                    self.rect.move_ip(0, -1)
-
-                self.rect.move_ip(0, -2)
-
-            elif self.current_direction != "":
-                self.update_animation()
-
+            self.rect.move_ip(0, 5)
             self.current_direction = "d"
+            self.update_animation()
 
         #left direction
         elif direction == "l":
-
-            self.rect.move_ip(-self.speed, 0)
-
-            if lvl.check_collision(self):
-
-                while lvl.check_collision(self):
-                    self.rect.move_ip(1, 0)
-
-                self.rect.move_ip(2, 0)
-
-            elif self.current_direction != "":
-                self.update_animation()
-
+            self.rect.move_ip(-5, 0)
             self.current_direction = "l"
+            self.update_animation()
 
         #right direction
         elif direction == "r":
-
-            self.rect.move_ip(self.speed, 0)
-            if lvl.check_collision(self):
-
-                while lvl.check_collision(self):
-                    self.rect.move_ip(-1, 0)
-
-                self.rect.move_ip(-2, 0)
-
-            elif self.current_direction != "":
-                self.update_animation()
-
+            self.rect.move_ip(5, 0)
             self.current_direction = "r"
+            self.update_animation()
+
+        self.reposition(lvl)
 
     #function to update pac's animation 
     def update_animation(self):
@@ -146,3 +79,67 @@ class Player(pygame.sprite.Sprite):
         #if pacman is on his first frame, move back into the zero frame
         else:
             self.animation_index = 0
+
+    def check_portal(self):
+
+        if self.rect.x < -30:
+            self.rect.x = 440
+            self.rect.y = 219
+
+        elif self.rect.x > 460:
+            self.rect.x = -20
+            self.rect.y = 219
+
+    def reposition(self, lvl):
+
+        if self.current_direction == "u":
+            step = 1
+            while step < 4:
+                self.rect.move_ip(0, -step)
+
+                if not lvl.check_collision(self):
+                    self.rect.move_ip(0, step)
+                    step += 1
+
+                else:
+                    self.rect.move_ip(0, 6)
+                    break
+
+        elif self.current_direction == "d":
+            step = 1
+            while step < 4:
+                self.rect.move_ip(0, step)
+
+                if not lvl.check_collision(self):
+                    self.rect.move_ip(0, -step)
+                    step += 1
+
+                else:
+                    self.rect.move_ip(0, -6)
+                    break
+
+        elif self.current_direction == "l":
+            step = 1
+            while step < 4:
+                self.rect.move_ip(-step, 0)
+
+                if not lvl.check_collision(self):
+                    self.rect.move_ip(step, 0)
+                    step += 1
+
+                else:
+                    self.rect.move_ip(6, 0)
+                    break
+
+        elif self.current_direction == "r":
+            step = 1
+            while step < 4:
+                self.rect.move_ip(step, 0)
+
+                if not lvl.check_collision(self):
+                    self.rect.move_ip(-step, 0)
+                    step += 1
+
+                else:
+                    self.rect.move_ip(-6, 0)
+                    break
