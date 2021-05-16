@@ -79,14 +79,16 @@ class Player(pygame.sprite.Sprite):
         #if pacman is on his first frame, move back into the zero frame
         else:
             self.animation_index = 0
-
+    #defines a function to check if pac is at a portal
     def check_portal(self):
-
+        #this x-cord value corresponds to going to the left of the screen, possible only at the left portal
         if self.rect.x < -30:
-            self.rect.x = 440
+            #move just to the right of the right portal 
+            self.rect.x = 445
             self.rect.y = 219
-
+        #this x-cord value corresponds to going to the right of the screen, possible only at the right portal
         elif self.rect.x > 460:
+            #move just to the left of the left portal
             self.rect.x = -20
             self.rect.y = 219
 
