@@ -1,7 +1,7 @@
 import pygame
 from Modules.level import Level
 from Modules.mobs import Player
-#test
+
 #initializes some standard pygame classes
 pygame.init()
 
