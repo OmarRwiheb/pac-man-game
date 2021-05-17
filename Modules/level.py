@@ -1,5 +1,6 @@
 import pygame
 
+
 #defines the level class which inherits from pygame
 class Level(pygame.sprite.Sprite):
     #constructor for the level class
@@ -13,10 +14,19 @@ class Level(pygame.sprite.Sprite):
         
         #gets the rectangle (border) of the map
         self.rect = self.image.get_rect()
-        
-        #makes all non-black pixels be treated as walls for the purpose of collision detection
-        self.mask = pygame.mask.from_surface(self.image)
 
     def check_collision(self, obj):
         #compares the position of the player to the walls, returns true if they collide
         return pygame.sprite.collide_mask(self, obj)
+
+
+#define the points class
+class Point(pygame.sprite.Sprite):
+
+    def __init__(self, x, y):
+        super(Point, self).__init__()
+        self.image = pygame.image.load("Resources\\Point.png")
+        self.rect = self.image.get_rect()
+
+        self.rect.x = x
+        self.rect.y = y
