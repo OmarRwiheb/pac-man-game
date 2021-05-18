@@ -109,6 +109,17 @@ for i in range(0, 28):
         cnt += 2
 
 
+# Score
+score_value = 0
+font = pygame.font.Font('Resources\\emulogic.ttf', 32)
+# postion of the score on the screen
+textX = 10
+textY = 500
+# show_score function to print the score on the screen
+def show_score(x, y):
+    score = font.render("Score:" + str(score_value), True, (255, 255, 255))
+    screen.blit(score, (x, y))
+
 # isPoint function check if there is a point near to the pacman
 def isPoint():
     if (player.rect.centerx > 0 and player.rect.centerx < 430):
@@ -121,10 +132,13 @@ def isPoint():
                         if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
                             del points[k]
                             # decrease the cnt valye by one when a point is deleted
-                            global cnt
+                            global cnt, score_value
                             cnt -= 1
+                            score_value += 100
                             break
                     break
+
+
 
 
 # main loop in which the game runs
@@ -172,6 +186,9 @@ while running:
     # iterates through the list of sprites, drawing each image inside its rectangle
     for i in game_group:
         screen.blit(i.image, i.rect)
+
+    # print the score
+    show_score(textX, textY)
 
     # updates the frame
     pygame.display.flip()

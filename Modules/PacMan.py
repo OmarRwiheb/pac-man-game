@@ -14,7 +14,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
         # how many pixels pacman moves per frame
-        self.speed = 6
+        self.speed = 5
 
         # a custom pygame event (id=5) to update pacman
         self.UPDATE = pygame.USEREVENT + 5
