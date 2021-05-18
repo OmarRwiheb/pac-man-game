@@ -1,7 +1,8 @@
 import pygame
 import numpy as np
-from Modules.level import Level, Point
+from Modules.level import Level
 from Modules.mobs import Player
+from Modules.point import Point
 
 #initializes some standard pygame classes
 pygame.init()
