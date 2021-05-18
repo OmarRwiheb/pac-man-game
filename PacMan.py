@@ -107,6 +107,24 @@ for i in range(0, 28):
         points_location[245, 21 + i*16] = True
         cnt += 2
 
+# isPoint function check if there is a point near to the pacman
+def isPoint():
+    if(player.rect.centerx > 0 and player.rect.centerx < 430):
+        for i in range(-9, 9):
+            for j in range(-9, 9):
+                if points_location[player.rect.centerx + i, player.rect.centery + j] == True:
+                    points_location[player.rect.centerx + i, player.rect.centery + j] = False
+                    # search in the whole poins list for this point
+                    for k, o in enumerate(points):
+                        if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
+                            del points[k]
+                            # decrease the cnt valye by one when a point is deleted
+                            global cnt
+                            cnt -= 1
+                            break
+                    break
+
+
 #main loop in which the game runs
 running = True
 while running:
@@ -144,20 +162,7 @@ while running:
     screen.fill((0, 0, 0))
 
     # search if there is any point near to pacman, and if one is found make it false in the 2d list and remove it from points list
-    if(player.rect.centerx > 0 and player.rect.centerx < 430):
-        for i in range(-9, 9):
-            for j in range(-9, 9):
-                if points_location[player.rect.centerx + i, player.rect.centery + j] == True:
-                    points_location[player.rect.centerx + i, player.rect.centery + j] = False
-                    # search in the whole poins list for this point
-                    for k, o in enumerate(points):
-                        if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
-                            del points[k]
-                            # decrease the cnt valye by one when a point is deleted
-                            cnt -= 1
-                            break
-                    break
-
+    isPoint()
 
     for p in points:
         screen.blit(p.image, p.rect)
