@@ -1,6 +1,7 @@
 import pygame
 
-#define the points class
+
+# define the points class
 class Point:
 
     def __init__(self, x, y):
