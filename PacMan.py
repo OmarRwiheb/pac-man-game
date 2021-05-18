@@ -29,6 +29,9 @@ points = []
 # so any location on the map that contain a point we will make it = True in the 2d array
 points_location = np.zeros((level.size), dtype=bool)
 
+# cnt variable is used to count the points number
+cnt = 0
+
 # store the points location in points list and make it true in the 2d list
 for i in range(0, 26):
 
@@ -36,35 +39,36 @@ for i in range(0, 26):
     if i not in [0, 12, 13]:
         points.append(Point(21 + i * 16, 23))
         points_location[21 + i * 16, 23] = True
+        cnt += 1
     
     #Row 2
     points.append(Point(21 + i*16, 85))
     points_location[21 + i*16, 85] = True
-    
+    cnt += 1
     #Row 3
     if i not in [6, 7, 12, 13, 18, 19]:
         points.append(Point(21 + i*16, 133))
         points_location[21 + i*16, 133] = True
-
+        cnt += 1
     #Row 4
     if i not in [0, 12, 13, 25]:
         points.append(Point(21 + i*16, 325))
         points_location[21 + i*16, 325] = True
-
+        cnt += 1
     #Row 5
     if i not in [3, 4, 21, 22]:
         points.append(Point(21 + i*16, 374))
         points_location[21 + i*16, 374] = True
-
+        cnt += 1
     #Row 6
     if i not in [6, 7, 12, 13, 18, 19]:
         points.append(Point(21 + i*16, 421))
         points_location[21 + i*16, 421] = True
-
+        cnt += 1
     #Row 7
     points.append(Point(21 + i*16, 470))
     points_location[21 + i*16, 470] = True
-
+    cnt += 1
 for i in range(0, 28):
 
     #Column 1 and 10
@@ -73,35 +77,35 @@ for i in range(0, 28):
         points.append(Point(421, 21 + i*16))
         points_location[21, 21 + i*16] = True
         points_location[421, 21 + i*16] = True
-
+        cnt += 2
     #Column 2 and 9
     if i in [23, 24]:
         points.append(Point(53, 21 + i*16))
         points.append(Point(389, 21 + i*16))
         points_location[53, 21 + i*16] = True
         points_location[389, 21 + i*16] = True
-
+        cnt += 2
     #Column 3 and 8
     if i not in [0, 4, 7, 19, 22, 25, 26, 27]:
         points.append(Point(101, 21 + i*16))
         points.append(Point(341, 21 + i*16))
         points_location[101, 21 + i*16] = True
         points_location[341, 21 + i*16] = True
-
+        cnt += 2
     #Column 4 and 7
     if i in [5, 6, 23, 24]:
         points.append(Point(149, 21 + i*16))
         points.append(Point(293, 21 + i*16))
         points_location[149, 21 + i*16] = True
         points_location[293, 21 + i*16] = True
-
+        cnt += 2
     #Column 5 and 6
     if i in [1, 2, 3, 20, 21, 26, 27]:
         points.append(Point(197, 21 + i*16))
         points.append(Point(245, 21 + i*16))
         points_location[197, 21 + i*16] = True
         points_location[245, 21 + i*16] = True
-
+        cnt += 2
 
 #main loop in which the game runs
 running = True
@@ -109,6 +113,9 @@ while running:
 
     #iterate through all events generated from pygame
     for event in pygame.event.get():
+        # quits when pacman eat all the points
+        if cnt == 0:
+            running = False
         #quits when user presses the X
         if event.type == pygame.QUIT:
             running = False
@@ -146,6 +153,8 @@ while running:
                     for k, o in enumerate(points):
                         if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
                             del points[k]
+                            # decrease the cnt valye by one when a point is deleted
+                            cnt -= 1
                             break
                     break
 
