@@ -71,7 +71,7 @@ class Player(pygame.sprite.Sprite):
     # function to update pac's animation
     def update_animation(self, lvl):
 
-        if not lvl.check_collision(self):
+        #if not lvl.check_collision(self):
             # from the dictionary containing all images, select the current direction and decide which frame to use based on the animation index
             self.image = pygame.image.load(self.animation_dict[self.current_direction][self.animation_index])
 
@@ -82,7 +82,7 @@ class Player(pygame.sprite.Sprite):
             # if pacman is on his first frame, move back into the zero frame
             else:
                 self.animation_index = 0
-
+    #function to check if pacman is at a portal
     def check_portal(self):
 
         # checks if pacman moved in the left portal
@@ -97,7 +97,7 @@ class Player(pygame.sprite.Sprite):
 
     def reposition(self, lvl):
 
-        # mackes sure to set a constant distance between pacman and any other wall
+        # makes sure to set a constant distance between pacman and any other wall
         d = 2
 
         if self.current_direction == "u":
