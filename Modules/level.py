@@ -21,10 +21,9 @@ class Level(pygame.sprite.Sprite):
 
 
 #define the points class
-class Point(pygame.sprite.Sprite):
+class Point:
 
     def __init__(self, x, y):
-        super(Point, self).__init__()
         self.image = pygame.image.load("Resources\\Point.png")
         self.rect = self.image.get_rect()
 

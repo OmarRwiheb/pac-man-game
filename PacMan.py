@@ -143,7 +143,7 @@ while running:
                 points_location[player.rect.centerx + i, player.rect.centery + j] = False
                 # search in the whole poins list for this point
                 for k, o in enumerate(points):
-                    if o.rect.x == player.rect.centerx + i:
+                    if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
                         del points[k]
                         break
                 break
