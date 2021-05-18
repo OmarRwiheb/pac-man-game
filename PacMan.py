@@ -137,16 +137,17 @@ while running:
     screen.fill((0, 0, 0))
 
     # search if there is any point near to pacman, and if one is found make it false in the 2d list and remove it from points list
-    for i in range(-11, 11):
-        for j in range(-11, 11):
-            if points_location[player.rect.centerx + i, player.rect.centery + j] == True:
-                points_location[player.rect.centerx + i, player.rect.centery + j] = False
-                # search in the whole poins list for this point
-                for k, o in enumerate(points):
-                    if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
-                        del points[k]
-                        break
-                break
+    if(player.rect.centerx > 0 and player.rect.centerx < 430):
+        for i in range(-9, 9):
+            for j in range(-9, 9):
+                if points_location[player.rect.centerx + i, player.rect.centery + j] == True:
+                    points_location[player.rect.centerx + i, player.rect.centery + j] = False
+                    # search in the whole poins list for this point
+                    for k, o in enumerate(points):
+                        if o.rect.x == player.rect.centerx + i and o.rect.y == player.rect.centery + j:
+                            del points[k]
+                            break
+                    break
 
 
     for p in points:
