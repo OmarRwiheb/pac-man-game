@@ -25,7 +25,7 @@ state = 0
 GhostsAlive = [True, True, True, True, True, True]
 # a list containing all instances of the ghosts
 ghost_list = [ghost(410, 460), ghost(10, 460), ghost(410, 10),
-                ghost(120, 10)]
+                ghost(250, 250)]
 # this variable controls which ghosts change direction
 flag = 2
 
@@ -204,7 +204,7 @@ while running:
                 flag += 1
             elif flag == 3:
                 ghost_list[2].changeDirection()
-                ghost_list[2].changeDirection()
+                ghost_list[3].changeDirection()
                 flag += 1
             else:
                 flag = 1
