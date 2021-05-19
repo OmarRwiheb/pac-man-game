@@ -1,9 +1,10 @@
-import pygame
+import pygame, math
 import numpy as np
 from Modules.map import Map
 from Modules.PacMan import Player
 from Modules.point import Point
 from Modules.ghosts import ghost
+
 # initializes some standard pygame classes
 pygame.init()
 
@@ -117,13 +118,14 @@ for i in range(0, 28):
         points_location[245, 21 + i * 16] = True
         points_left += 2
 
-
 # Score
 score_value = 0
 font = pygame.font.Font('Resources\\emulogic.ttf', 32)
 # postion of the score on the screen
 text_X = 10
 text_Y = 500
+
+
 # show_score function to print the score on the screen
 
 
@@ -131,33 +133,22 @@ def show_score(x, y):
     score = font.render("Score:" + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
-# isPoint function check if there is a point near to the pacman
+# function to calculate x power 2
+def power2(x):
+    return x * x
 
+# function to check if pacman near to any pont by calculating the distance between pacman and each point
+def point_collsion(player):
+    for k, o in enumerate(points):
 
-def isPoint():
-    # this condition prevent out-of-bounds error when pac man goes into portals
-    if (player.rect.centerx > 0 and player.rect.centerx < 430):
-        # a 9×9 square representing packman's mouth
-        for i in range(-9, 9):
-            for j in range(-9, 9):
-                if points_location[player.rect.centerx + i, player.rect.centery + j] == True:
-                    points_location[player.rect.centerx +
-                                    i, player.rect.centery + j] = False
+        if math.sqrt(power2(o.rect.centerx - player.rect.centerx) + power2(o.rect.centery - player.rect.centery)) <= 9:
 
-                    # search in the whole points list for this point
-                    for index, p in enumerate(points):
-
-                        # if the point matches the coordinates of pacman's mouth
-                        # delete it from the list, decrement the number of points left, and add to the score
-                        if p.rect.x == player.rect.centerx + i and p.rect.y == player.rect.centery + j:
-                            del points[index]
-                            # decrease the points_left value by one when a point is deleted
-                            global points_left, score_value
-                            points_left -= 1
-                            score_value += 100
-                    # break from the two outer loops since you already found the point pacman just ate
-                            break
-                    break
+            del points[k]
+            # decrease the cnt valye by one when a point is deleted
+            global points_left, score_value
+            points_left-=1
+            score_value += 100
+            break
 
 
 # main loop in which the game runs
@@ -225,8 +216,8 @@ while running:
     # fills the screen with black to to prepare for the next frame
     screen.fill((0, 0, 0))
 
-    # search if there is any point near to pacman, and if one is found make it false in the 2d list and remove it from points list
-    isPoint()
+    # search if there is any point near to pacman, and if one is found remove it from points list
+    point_collsion(player)
 
     # iterate through the list of points drawing them
     for p in points:
