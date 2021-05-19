@@ -1,4 +1,4 @@
-import pygame
+import pygame, math
 import numpy as np
 from Modules.map import Map
 from Modules.PacMan import Player
