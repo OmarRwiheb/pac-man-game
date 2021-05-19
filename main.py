@@ -141,7 +141,8 @@ def point_collsion(player):
 
             del points[k]
             # decrease the cnt valye by one when a point is deleted
-            global cnt, score_value
+            global points_left, score_value
+            points_left-=1
             score_value += 100
             break
 
