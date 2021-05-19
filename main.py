@@ -134,7 +134,7 @@ def point_collsion(player):
     for k, o in enumerate(points):
         if math.sqrt(
                 math.pow((o.rect.centerx - player.rect.centerx), 2) + math.pow((o.rect.centery - player.rect.centery),
-                                                                               2)) <= 5:
+                                                                               2)) <= 8:
             del points[k]
             # decrease the cnt valye by one when a point is deleted
             global cnt, score_value
