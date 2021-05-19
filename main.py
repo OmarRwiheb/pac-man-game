@@ -7,6 +7,7 @@ from Modules.PacMan import Player
 from Modules.point import Point
 from Modules.ghosts import ghost
 import time
+import random
 # initializes some standard pygame classes
 pygame.init()
 
@@ -19,7 +20,7 @@ pygame.display.set_icon(icon)
 map = Map()
 player = Player()
 #vairable to track whether the player has died or not
-death = False
+state = 0
 #list of the ghosts that are alive
 GhostsAlive = [True, True, True, True, True, True]
 # a list containing all instances of the ghosts
@@ -130,20 +131,26 @@ for i in range(0, 28):
 
 # Score
 score_value = 0
-font = pygame.font.Font('Resources\\emulogic.ttf', 32)
+font1 = pygame.font.Font('Resources\\emulogic.ttf', 32)
+font2 = pygame.font.Font('Resources\\emulogic.ttf', 19)
 # postion of the score on the screen
 text_X = 10
 text_Y = 500
-
+tip = random.choice(["Kill all ghosts to win!", "Eat all points to win!"])
 
 # show_score function to print the score on the screen
-def show_score(x, y, death=False):
-    score = font.render("Score:" + str(score_value), True, (255, 255, 255))
+def show_score(x, y, state):
+    score = font1.render("Score:" + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
-    if death:
-        score = score = font.render("You Died!", True, (255, 255, 255))
+    if state==0:
+        score = score = font2.render(tip, True, (255, 255, 255))
         screen.blit(score, (x, y+50))
-
+    elif state==1:
+        score = score = font1.render("You Died!", True, (255, 255, 255))
+        screen.blit(score, (x, y+50))
+    elif state==2:
+        score = score = font1.render("You Won!", True, (255, 255, 255))
+        screen.blit(score, (x, y+50))
 # function to calculate x power 2
 def power2(x):
     return x * x
@@ -174,7 +181,8 @@ while running:
         
 
         # quits when pacman eat all the points
-        if points_left == 0:
+        if points_left == 0 or GhostsAlive==0:
+            state =2
             running = False
         # quits when user presses the X
         if event.type == pygame.QUIT:
@@ -242,7 +250,7 @@ while running:
                     GhostsAlive[index] = False
                     score_value += 5000
                 else:
-                    death = True
+                    state = 1
                     running = False
     #search for cherries near pacman
     for index, Cherry in enumerate(Cherries):
@@ -273,7 +281,7 @@ while running:
         screen.blit(i.image, i.rect)
 
     # print the score
-    show_score(text_X, text_Y, death)
+    show_score(text_X, text_Y, state)
 
     # updates the frame
     pygame.display.flip()
