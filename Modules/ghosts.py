@@ -9,7 +9,6 @@ class ghost(Player):
     # each ghost will spawn at the (x,y) passed to it
     def __init__(self, x, y):
         # load image
-        self.Color="red"
         self.image = pygame.image.load("Resources\\red_ghost.png")
         # get image borders
         self.rect = self.image.get_rect()
