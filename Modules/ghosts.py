@@ -9,6 +9,7 @@ class ghost(Player):
     # each ghost will spawn at the (x,y) passed to it
     def __init__(self, x, y):
         # load image
+        self.Color="red"
         self.image = pygame.image.load("Resources\\red_ghost.png")
         # get image borders
         self.rect = self.image.get_rect()
@@ -28,6 +29,13 @@ class ghost(Player):
         pygame.time.set_timer(self.CHANGE_GHOST_DIRECTION,
                               random.randint(15, 30)*100)
 
+    #function to change ghost colors when pac eats a cherry or runs out of strength
+    def UpdateColor(self,x):
+        if not x>0:
+            self.image = pygame.image.load("Resources\\red_ghost.png")
+        else:
+            self.image = pygame.image.load("Resources\\weak_ghost.png")
+    
     # function to change directions, chooses randomly between the 0-3 index
     def changeDirection(self):
         self.direction = self.ghost_directions[random.randint(0, 3)]

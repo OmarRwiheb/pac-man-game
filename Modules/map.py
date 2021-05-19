@@ -7,7 +7,7 @@ class Map(pygame.sprite.Sprite):
     def __init__(self):
         super(Map, self).__init__()
         # size variable, contains the dimensions of the game window based on the dimensions of the map image
-        self.size = [450, 550]
+        self.size = [450, 600]
 
         # loads map image into the image variable
         self.image = pygame.image.load("Resources\\Level.png")

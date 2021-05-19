@@ -13,6 +13,8 @@ class Player(pygame.sprite.Sprite):
         # gets the rectangle (border) of the pac man image
         self.rect = self.image.get_rect()
 
+        #variable to control whether pacman eats ghosts or gets eaten by them
+        self.strength=0
         # how many pixels pacman moves per frame
         self.speed = 5
 
