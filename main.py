@@ -6,6 +6,7 @@ from Modules.point import Point
 from Modules.ghosts import ghost
 
 # initializes some standard pygame classes
+
 pygame.init()
 
 # change game icon and name
