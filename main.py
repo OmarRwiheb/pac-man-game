@@ -24,14 +24,14 @@ death = False
 GhostsAlive = [True, True, True, True, True, True]
 # a list containing all instances of the ghosts
 ghost_list = [ghost(410, 460), ghost(10, 460), ghost(410, 10),
-              ghost(300, 300), ghost(100, 260), ghost(120, 10)]
+                ghost(120, 10)]
 # this variable controls which ghosts change direction
 flag = 2
 
 #list of Cherry objects
 Cherries = [Cherry(140, 170), Cherry(280, 170),
             Cherry(280, 280), Cherry(140, 280)]
-#boelean array tracking which cherries haven't been eaten yet
+#boolean array tracking which cherries haven't been eaten yet
 Cherries_NotEaten = [True, True, True, True]
 # adds all sprites to the variable game_group
 game_group = pygame.sprite.Group()
@@ -171,12 +171,7 @@ while running:
         if GhostsAlive[3]:
             ghost_list[3].move(map)
             ghost_list[3].UpdateColor(player.strength)
-        if GhostsAlive[4]:
-            ghost_list[4].move(map)
-            ghost_list[4].UpdateColor(player.strength)
-        if GhostsAlive[5]:
-            ghost_list[5].move(map)
-            ghost_list[5].UpdateColor(player.strength)
+        
 
         # quits when pacman eat all the points
         if points_left == 0:
@@ -195,15 +190,13 @@ while running:
             #every event 2 ghosts change direction, flag controls which ones
             if flag == 1:
                 ghost_list[0].changeDirection()
-                ghost_list[1].changeDirection()
                 flag += 1
             elif flag == 2:
-                ghost_list[2].changeDirection()
-                ghost_list[3].changeDirection()
+                ghost_list[1].changeDirection()
                 flag += 1
             elif flag == 3:
-                ghost_list[4].changeDirection()
-                ghost_list[5].changeDirection()
+                ghost_list[2].changeDirection()
+                ghost_list[2].changeDirection()
                 flag += 1
             else:
                 flag = 1
