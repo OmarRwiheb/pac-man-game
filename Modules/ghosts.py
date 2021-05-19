@@ -26,7 +26,7 @@ class ghost(Player):
         self.CHANGE_GHOST_DIRECTION = pygame.event.Event(30)
         # each ghost separately changes directions every 1 second, can be changed
         pygame.time.set_timer(self.CHANGE_GHOST_DIRECTION,
-                              random.randint(15, 30)*100)
+                              random.randint(15, 30)*80)
 
     #function to change ghost colors when pac eats a cherry or runs out of strength
     def UpdateColor(self,x):
