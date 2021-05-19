@@ -136,7 +136,9 @@ def power2(x):
 # function to check if pacman near to any pont by calculating the distance between pacman and each point
 def point_collsion(player):
     for k, o in enumerate(points):
+
         if math.sqrt(power2(o.rect.centerx - player.rect.centerx) + power2(o.rect.centery - player.rect.centery)) <= 9:
+
             del points[k]
             # decrease the cnt valye by one when a point is deleted
             global cnt, score_value
