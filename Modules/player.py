@@ -71,8 +71,7 @@ class Player(pygame.sprite.Sprite):
 
         if not lvl.check_collision(self):
             # from the dictionary containing all images, select the current direction and decide which frame to use based on the animation index
-            self.image = pygame.image.load(
-                self.animation_dict[self.current_direction][self.animation_index])
+            self.image = pygame.image.load(self.animation_dict[self.current_direction][self.animation_index])
 
         # if pacman is on his zero frame, move into the first frame
         if self.animation_index == 0:

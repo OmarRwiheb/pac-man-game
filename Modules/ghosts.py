@@ -131,8 +131,7 @@ class Ghost(Player):
                     self.animation_dict[self.current_direction][self.animation_index])
             #if weak use the weak ghost images
             else:
-                self.image = pygame.image.load(
-                    self.animation_dict["w"][self.animation_index])
+                self.image = pygame.image.load(self.animation_dict["w"][self.animation_index])
 
         # if ghost is on his zero frame, move into the first frame
         if self.animation_index == 0:
