@@ -99,7 +99,7 @@ while running:
 
     # iterate through all events generated from pygame
     for event in pygame.event.get():
-
+        
         # quits when user presses the X
         if event.type == pygame.QUIT:
             running = False
@@ -209,11 +209,11 @@ while running:
     # search if there is any point near to pacman, and if one is found remove it from points list
     points_eaten = pygame.sprite.spritecollide(player, points_group, True)
     if points_eaten:
-        points_left -= 1
+        points_left -= len(points_left)
         score_value += 100
 
     # quits when pacman eat all the points or ghosts
-    if points_left == 0 or ghosts_alive == 0:
+    if points_left < 25 or ghosts_alive == 0:
         #play winning sound
         win = pygame.mixer.music.load("sound\\pac_win.mp3")
         pygame.mixer.music.play()
@@ -239,7 +239,8 @@ while running:
 
     # print the score
     show_score(text_X, text_Y, player_state)
-    if player_state != 2:
-        time.sleep(3)
+    
     # updates the frame
     pygame.display.flip()
+show_score(text_X, text_Y, player_state)
+time.sleep(3)
