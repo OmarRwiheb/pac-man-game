@@ -7,6 +7,7 @@ from Modules.player import Player
 from Modules.points import draw_points
 from Modules.ghosts import Ghost
 from Modules.superpoints import SuperPoint
+from Modules.super import SuperPoint
 
 # initializes some standard pygame classes
 pygame.init()
@@ -78,6 +79,7 @@ def show_score(x, y, player_state):
     elif player_state == 1:
         score = font1.render("You Won!", True, (255, 255, 255))
         screen.blit(score, (x, y+50))
+        time.sleep(3)
 
     else:
         score = font2.render(tip, True, (255, 255, 255))
@@ -144,20 +146,20 @@ while running:
                     g.weakened = False
 
                 if g.weakened:
-                    if g.check_player(5)[0] == g.current_direction == "l":
+                  
+                    if g.check_player(50)[0] == g.current_direction == "l":
                         g.change_direction()
 
-                    elif g.check_player(5)[0] == g.current_direction == "r":
+                    elif g.check_player(50)[0] == g.current_direction == "r":
                         g.change_direction()
 
-                    if g.check_player(5)[1] == g.current_direction == "u":
+                    if g.check_player(50)[1] == g.current_direction == "u":
                         g.change_direction()
 
-                    elif g.check_player(5)[1] == g.current_direction == "d":
+                    elif g.check_player(50)[1] == g.current_direction == "d":
                         g.change_direction()
 
-    super_points_eaten = pygame.sprite.spritecollide(
-        player, super_points_group, False)
+    super_points_eaten = pygame.sprite.spritecollide(player, super_points_group, False)
     if super_points_eaten:
 
         if player.strength > 0:
@@ -214,6 +216,9 @@ while running:
 
     # print the score
     show_score(text_X, text_Y, player_state)
+
+    if player_state != 2:
+        time.sleep(3)
 
     # updates the frame
     pygame.display.flip()

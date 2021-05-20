@@ -127,13 +127,11 @@ class Ghost(Player):
 
             if not self.weakened:
                 # from the dictionary containing all images, select the current direction and decide which frame to use based on the animation index
-                self.image = pygame.image.load(
-                    self.animation_dict[self.current_direction][self.animation_index])
+                self.image = pygame.image.load(self.animation_dict[self.current_direction][self.animation_index])
 
             else:
-                self.image = pygame.image.load(
-                    self.animation_dict["w"][self.animation_index])
-
+                self.image = pygame.image.load(self.animation_dict["w"][self.animation_index])
+                
         # if pacman is on his zero frame, move into the first frame
         if self.animation_index == 0:
             self.animation_index = 1
@@ -170,16 +168,17 @@ class Ghost(Player):
         if self.weakened:
 
             try:
-                if self.check_player(20)[0] == "l":
+              
+                if self.check_player(100)[0] == "l":
                     temp.remove("l")
 
-                elif self.check_player(20)[0] == "r":
+                elif self.check_player(100)[0] == "r":
                     temp.remove("r")
 
-                if self.check_player(20)[1] == "u":
+                if self.check_player(100)[1] == "u":
                     temp.remove("u")
 
-                elif self.check_player(20)[1] == "d":
+                elif self.check_player(100)[1] == "d":
                     temp.remove("d")
 
             except ValueError:
