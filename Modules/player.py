@@ -14,11 +14,10 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
 
         #variable to control whether pacman eats ghosts or gets eaten by them
-        self.strength=0
-        # how many pixels pacman moves per frame
-        self.speed = 5
+        self.strength = 0
 
-        
+        # how many pixels pacman moves per frame
+        self.speed = 4
 
         # starts with no direction
         self.current_direction = ""
@@ -70,17 +69,19 @@ class Player(pygame.sprite.Sprite):
     # function to update pac's animation
     def update_animation(self, lvl):
 
-        #if not lvl.check_collision(self):
+        if not lvl.check_collision(self):
             # from the dictionary containing all images, select the current direction and decide which frame to use based on the animation index
-            self.image = pygame.image.load(self.animation_dict[self.current_direction][self.animation_index])
+            self.image = pygame.image.load(
+                self.animation_dict[self.current_direction][self.animation_index])
 
-            # if pacman is on his zero frame, move into the first frame
-            if self.animation_index == 0:
-                self.animation_index = 1
+        # if pacman is on his zero frame, move into the first frame
+        if self.animation_index == 0:
+            self.animation_index = 1
 
-            # if pacman is on his first frame, move back into the zero frame
-            else:
-                self.animation_index = 0
+        # if pacman is on his first frame, move back into the zero frame
+        else:
+            self.animation_index = 0
+
     #function to check if pacman is at a portal
     def check_portal(self):
 
