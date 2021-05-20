@@ -11,7 +11,9 @@ from Modules.superpoints import SuperPoint
 
 # initializes some standard pygame classes
 pygame.init()
-
+#play start game sound
+game_music = pygame.mixer.music.load("sound\\start the game.wav")
+pygame.mixer.music.play()
 # change game icon and name
 pygame.display.set_caption("PAC-MAN")
 icon = pygame.image.load("Resources\\icon.png")
@@ -169,6 +171,10 @@ while running:
             pass
         #if pac is weak, remove the super point, give him 100 strength, increase his speed
         else:
+            #plays cherry eating sound
+            eat = pygame.mixer.music.load("sound\\pac_eat cherries.wav")
+            pygame.mixer.music.play()
+            
             super_points_eaten[0].kill()
             player.strength = 100
             player.speed = 6
@@ -184,12 +190,19 @@ while running:
     if collided_ghosts:
         #if pac is strong, remove the ghost
         if player.strength > 0:
+            #play ghost eating sound
+            strong = pygame.mixer.music.load("sound\\pac_strong.mp3")
+            pygame.mixer.music.play()
+            
             collided_ghosts[0].kill()
             score_value += 5000
             ghosts_alive -= 1
 
         #if pac is weak, change the state into dead state
         else:
+            #play dying sound
+            fail = pygame.mixer.music.load("sound\\pac_fail.wav")
+            pygame.mixer.music.play()
             player_state = 0
             running = False
 
@@ -199,8 +212,11 @@ while running:
         points_left -= 1
         score_value += 100
 
-    # quits when pacman eat all the points
+    # quits when pacman eat all the points or ghosts
     if points_left == 0 or ghosts_alive == 0:
+        #play winning sound
+        win = pygame.mixer.music.load("sound\\pac_win.mp3")
+        pygame.mixer.music.play()
         player_state = 1
         running = False
 
