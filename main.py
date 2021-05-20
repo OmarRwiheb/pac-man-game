@@ -6,7 +6,6 @@ from Modules.map import Map
 from Modules.player import Player
 from Modules.points import draw_points
 from Modules.ghosts import Ghost
-from Modules.superpoints import SuperPoint
 from Modules.super import SuperPoint
 
 # initializes some standard pygame classes
@@ -74,12 +73,10 @@ def show_score(x, y, player_state):
     if player_state == 0:
         score = font1.render("You Died!", True, (255, 255, 255))
         screen.blit(score, (x, y+50))
-        time.sleep(3)
 
     elif player_state == 1:
         score = font1.render("You Won!", True, (255, 255, 255))
         screen.blit(score, (x, y+50))
-        time.sleep(3)
 
     else:
         score = font2.render(tip, True, (255, 255, 255))
@@ -146,7 +143,6 @@ while running:
                     g.weakened = False
 
                 if g.weakened:
-                  
                     if g.check_player(50)[0] == g.current_direction == "l":
                         g.change_direction()
 

@@ -131,7 +131,7 @@ class Ghost(Player):
 
             else:
                 self.image = pygame.image.load(self.animation_dict["w"][self.animation_index])
-                
+
         # if pacman is on his zero frame, move into the first frame
         if self.animation_index == 0:
             self.animation_index = 1
@@ -168,7 +168,6 @@ class Ghost(Player):
         if self.weakened:
 
             try:
-              
                 if self.check_player(100)[0] == "l":
                     temp.remove("l")
 
