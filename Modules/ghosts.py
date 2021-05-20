@@ -3,8 +3,6 @@ import pygame
 import random
 
 # defines the ghost class, which inherits from the player class
-
-
 class Ghost(Player):
 
     # each ghost will spawn at the (x,y) passed to it
@@ -23,12 +21,13 @@ class Ghost(Player):
 
         # assigns a random direction
         self.current_direction = self.directions[random.randint(0, 3)]
-
+        #tracks the ghost's last direction, used so it doesn't hit a wall and try to move in the same direction
         self.previous_direction = ""
-
+        
+        #tracks whether the ghost is weak and can be eaten by pacman
         self.weakened = False
 
-        # dictionary which contains all pacman frames in every movement direction
+        # dictionary which contains all ghost frames in every movement direction
         self.animation_dict = {"u": ["Resources\\GU1.png", "Resources\\GU2.png"],
                                "d": ["Resources\\GD1.png", "Resources\\GD2.png"],
                                "l": ["Resources\\GL1.png", "Resources\\GL2.png"],
@@ -36,7 +35,7 @@ class Ghost(Player):
                                "w": ["Resources\\WG1.png", "Resources\\WG2.png"]}
 
     def move(self, lvl):
-        # checks if pacman entered any of the two portals
+        # checks if ghost entered any of the two portals
         self.check_portal()
 
         # 4 blocks of code
@@ -66,7 +65,7 @@ class Ghost(Player):
 
     def reposition(self, lvl):
 
-        # makes sure to set a constant distance between pacman and any other wall
+        # makes sure to set a constant distance between ghost and any other wall
         d = 2
 
         if self.current_direction == "u":
@@ -121,27 +120,30 @@ class Ghost(Player):
                 self.rect.move_ip(-d, 0)
                 self.change_direction()
 
+    #define the function used to update ghost animations
     def update_animation(self, lvl):
 
         if not lvl.check_collision(self):
-
+            #if not weak use normal images
             if not self.weakened:
                 # from the dictionary containing all images, select the current direction and decide which frame to use based on the animation index
                 self.image = pygame.image.load(
                     self.animation_dict[self.current_direction][self.animation_index])
-
+            #if weak use the weak ghost images
             else:
                 self.image = pygame.image.load(
                     self.animation_dict["w"][self.animation_index])
 
-        # if pacman is on his zero frame, move into the first frame
+        # if ghost is on his zero frame, move into the first frame
         if self.animation_index == 0:
             self.animation_index = 1
 
-        # if pacman is on his first frame, move back into the zero frame
+        # if ghost is on his first frame, move back into the zero frame
         else:
             self.animation_index = 0
 
+    #function to check distance between ghost and player, returns which direction pac man is coming from, used when ghost is running away
+    #offset is the distance at which the ghost will start running away from pacman
     def check_player(self, offset):
 
         x = ""
@@ -163,25 +165,29 @@ class Ghost(Player):
 
     # function to change directions, chooses randomly between the 0-3 index
     def change_direction(self):
-
+        #copy the direction list into a temp variable
         temp = self.directions.copy()
+        #remove the previous direction from the list
         temp.remove(self.previous_direction)
 
+        #if the ghost is weak run from pacman
         if self.weakened:
 
             try:
-                if self.check_player(20)[0] == "l":
+                #20 is used as the offset
+                if self.check_player(100)[0] == "l":
                     temp.remove("l")
 
-                elif self.check_player(20)[0] == "r":
+                elif self.check_player(100)[0] == "r":
                     temp.remove("r")
 
-                if self.check_player(20)[1] == "u":
+                if self.check_player(100)[1] == "u":
                     temp.remove("u")
 
-                elif self.check_player(20)[1] == "d":
+                elif self.check_player(100)[1] == "d":
                     temp.remove("d")
 
+            #if check player() returns an empty list, pass
             except ValueError:
                 pass
 

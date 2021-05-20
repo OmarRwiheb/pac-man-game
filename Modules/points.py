@@ -15,7 +15,7 @@ class Point(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-
+#function to return a list of points locations
 def draw_points():
 
     # a sprite group that will be filled with all the point() objects

@@ -1,8 +1,8 @@
 import pygame
 
 
-#define the cherry class
-#each cherry will spawn at the given (x,y)
+#define the superpoint class
+#each superpoint will spawn at the given (x,y)
 class SuperPoint(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super(SuperPoint, self).__init__()
