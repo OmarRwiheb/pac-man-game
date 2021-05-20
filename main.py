@@ -19,7 +19,7 @@ pygame.display.set_icon(icon)
 # makes a level and player instance
 map = Map()
 player = Player()
-#vairable to track whether the player has died or not
+#variable to track whether the player has died or not
 state = 0
 #list of the ghosts that are alive
 GhostsAlive = [True, True, True, True, True, True]
@@ -34,6 +34,12 @@ Cherries = [Cherry(140, 170), Cherry(280, 170),
             Cherry(280, 280), Cherry(140, 280)]
 #boolean array tracking which cherries haven't been eaten yet
 Cherries_NotEaten = [True, True, True, True]
+
+#a custom pygame event (id=5), to increase the frequency of events in the main loop
+Event = pygame.USEREVENT + 5
+# fires the custom event every 70 ms
+pygame.time.set_timer(Event, 70)
+
 # adds all sprites to the variable game_group
 game_group = pygame.sprite.Group()
 game_group.add(map, player)
