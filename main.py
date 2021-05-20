@@ -7,7 +7,7 @@ from Modules.player import Player
 from Modules.points import draw_points
 from Modules.ghosts import Ghost
 from Modules.superpoints import SuperPoint
-from Modules.super import SuperPoint
+
 
 # initializes some standard pygame classes
 pygame.init()
