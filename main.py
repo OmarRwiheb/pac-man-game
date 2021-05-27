@@ -207,13 +207,14 @@ while running:
             running = False
 
     # search if there is any point near to pacman, and if one is found remove it from points list
+    points_eaten=[]
     points_eaten = pygame.sprite.spritecollide(player, points_group, True)
     if points_eaten:
-        points_left -= len(points_left)
-        score_value += 100
+       score_value=score_value+(len(points_eaten)*100)
+       points_left -= len(points_eaten)
 
     # quits when pacman eat all the points or ghosts
-    if points_left < 25 or ghosts_alive == 0:
+    if points_left == 0 or ghosts_alive == 0:
         #play winning sound
         win = pygame.mixer.music.load("sound\\pac_win.mp3")
         pygame.mixer.music.play()
@@ -230,12 +231,13 @@ while running:
     # iterates through the list of sprites, drawing each image inside its rectangle
     for i in game_group:
         screen.blit(i.image, i.rect)
+    
+    for i in super_points_group:
+        screen.blit(i.image, i.rect)
 
     for i in ghosts_group:
         screen.blit(i.image, i.rect)
 
-    for i in super_points_group:
-        screen.blit(i.image, i.rect)
 
     # print the score
     show_score(text_X, text_Y, player_state)
