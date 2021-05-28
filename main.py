@@ -193,10 +193,10 @@ while running:
             #play ghost eating sound
             strong = pygame.mixer.music.load("sound\\pac_strong.mp3")
             pygame.mixer.music.play()
-            
-            collided_ghosts[0].kill()
-            score_value += 5000
-            ghosts_alive -= 1
+            for g in collided_ghosts:
+             g.kill()
+             score_value += (7500*len(collided_ghosts))
+             ghosts_alive -= len(collided_ghosts)
 
         #if pac is weak, change the state into dead state
         else:
@@ -245,4 +245,4 @@ while running:
     # updates the frame
     pygame.display.flip()
 show_score(text_X, text_Y, player_state)
-time.sleep(3)
+pygame.time.wait(3000)
