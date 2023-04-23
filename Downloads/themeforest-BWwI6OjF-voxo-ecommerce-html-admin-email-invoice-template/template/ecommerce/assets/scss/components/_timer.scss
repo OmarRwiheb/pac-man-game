@@ -1,0 +1,194 @@
+/**=====================
+     timer css start
+==========================**/
+.timer {
+    ul {
+        padding: 20px;
+        background-color: rgba($theme-font-color, 0.8);
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        [dir="rtl"] & {
+            padding: 20px;
+        }
+
+        @include mq-max(2xl) {
+            padding: 15px;
+        }
+
+        @include mq-max(xs) {
+            padding: 10px;
+        }
+
+        li {
+            position: relative;
+
+            span {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            @include mq-max(xs) {
+                font-size: 12px;
+            }
+
+            h5 {
+                @include mq-max(xs) {
+                    font-size: 13px;
+                }
+            }
+
+            +li {
+                margin-left: 30px;
+
+                &::before {
+                    @include pos;
+                    @include center(vertical);
+                    left: -17px;
+                    border-left: 1px solid rgba($font-light, 0.4);
+                    height: 50%;
+
+                    [dir="rtl"] & {
+                        right: -17px;
+                        left: unset !important;
+                        border-right: 1px solid rgba($font-light, 0.4);
+                        border-left: unset;
+                    }
+
+                    @include mq-max(2xl) {
+                        left: -12px;
+
+                        [dir="rtl"] & {
+                            right: -12px;
+                        }
+                    }
+
+                    @include mq-max(xs) {
+                        left: -5px;
+
+                        [dir="rtl"] & {
+                            right: -5px;
+                        }
+                    }
+                }
+
+                [dir="rtl"] & {
+                    margin-right: 30px;
+                    margin-left: unset !important;
+                }
+
+                @include mq-max(2xl) {
+                    margin-left: 20px;
+
+                    [dir="rtl"] & {
+                        margin-right: 20px;
+                    }
+                }
+
+                @include mq-max(xs) {
+                    margin-left: 6px;
+
+                    [dir="rtl"] & {
+                        margin-right: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.timer-style-2 {
+    ul {
+        margin: calc(-5px + (-15 - -5) * ((100vw - 320px) / (1920 - 320)));
+        display: flex;
+        align-items: center;
+
+        li {
+            margin: calc(5px + (15 - 5) * ((100vw - 320px) / (1920 - 320)));
+            background-color: $white;
+            padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) calc(12px + (20 - 12) * ((100vw - 320px) / (1920 - 320)));
+            margin-right: 0;
+            color: $black1;
+
+            h2 {
+                font-size: calc(18px + (28 - 18) * ((100vw - 320px) / (1920 - 320)));
+            }
+
+            span {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            @include mq-max(xs) {
+                font-size: 12px;
+            }
+
+            h5 {
+                @include mq-max(xs) {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+.timer-style-3 {
+    position: absolute;
+    @include center(both);
+    background-color: rgba($demo-4, .8);
+    backdrop-filter: blur(2px);
+    width: 80%;
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        color: $white;
+        width: 100%;
+
+        li {
+            margin: calc(5px + (5 - 5) * ((100vw - 320px) / (1920 - 320))) calc(5px + (5 - 5) * ((100vw - 320px) / (1920 - 320))) calc(5px + (5 - 5) * ((100vw - 320px) / (1920 - 320))) 0;
+            padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) calc(12px + (20 - 12) * ((100vw - 320px) / (1920 - 320)));
+            width: 25%;
+
+            +li {
+                position: relative;
+
+                &::after {
+                    @include pos;
+                    @include center(vertical);
+                    width: 1px;
+                    height: 50%;
+                    background-color: rgba($white, $alpha: 0.5);
+                    left: 0%;
+                }
+            }
+
+            &:nth-child(4) {
+                margin-right: 0;
+            }
+
+            h2 {
+                font-size: calc(18px + (28 - 18) * ((100vw - 320px) / (1920 - 320)));
+            }
+
+            span {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            @include mq-max(xs) {
+                font-size: 12px;
+            }
+
+            h5 {
+                @include mq-max(xs) {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

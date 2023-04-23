@@ -1,0 +1,443 @@
+/* =====================
+    Slick SLider CSS Start 
+ ========================== */
+@mixin slider_common {
+    .box-arrow {
+        .slick-prev {
+            left: calc(5px + (25 - 5) * ((100vw - 320px) / (1920 - 320)));
+            z-index: 1;
+
+            @include mq-max(md) {
+                left: 10px;
+            }
+
+            &::before {
+                content: "\f30a";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                left: 0;
+                color: $black1;
+                font-size: 40px;
+            }
+        }
+
+        .slick-next {
+            right: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
+            z-index: 1;
+
+            &::before {
+                content: "\f30b";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                right: 0;
+                color: $black1;
+                font-size: 40px;
+            }
+        }
+    }
+
+    .slick-dots {
+        li {
+            width: 10px;
+            height: 10px;
+
+            &.slick-active {
+                background-color: var(--theme-color);
+                border-radius: 50px;
+
+                button {
+                    background-color: transparent;
+                }
+            }
+
+            button {
+                background-color: $gainsboro;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+                color: transparent;
+
+                &::before {
+                    content: "";
+                }
+            }
+        }
+    }
+}
+
+@mixin slider_1 {
+    .slick-prev {
+        background-color: $light-demo-4;
+        position: absolute;
+        top: -100px;
+        left: 80%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        @include mq-max(3xl) {
+            top: -88px;
+            left: 80%;
+        }
+
+        @include mq-max(2xl) {
+            top: -88px;
+            left: 75%;
+        }
+
+        @include mq-max(xl) {
+            top: -88px;
+            left: 68%;
+        }
+
+        @include mq-max(lg) {
+            top: -75px;
+            left: 80%;
+        }
+
+        @include mq-max(md) {
+            top: -75px;
+            left: 73%;
+        }
+
+        @include mq-max(sm) {
+            top: -67px;
+            left: 63%;
+        }
+
+        &::before {
+            color: $black;
+            content: "\f053";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 15px;
+        }
+    }
+
+    .slick-next {
+        background-color: $light-demo-4;
+        position: absolute;
+        top: -100px;
+        right: 0%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        @include mq-max(3xl) {
+            top: -88px;
+            right: 0%;
+        }
+
+        @include mq-max(lg) {
+            top: -75px;
+            right: 20px;
+        }
+
+        @include mq-max(sm) {
+            top: -67px;
+            right: 20px;
+        }
+
+        &::before {
+            color: $black;
+            content: "\f054";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 15px;
+        }
+    }
+
+    .slick-prev:hover,
+    .slick-prev:focus,
+    .slick-next:hover,
+    .slick-next:focus {
+        background-color: $quick-silver;
+    }
+}
+
+@mixin slider_2 {
+    .round-arrow {
+        z-index: 1;
+
+        .slick-prev {
+            background-color: $light-demo-4;
+            position: absolute;
+            top: -100px;
+            left: unset;
+            right: 85px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            [dir="rtl"] & {
+                left: 25px;
+                right: unset;
+            }
+
+            @include mq-max(4xl) {
+                top: -90px;
+                right: 85px;
+            }
+
+            @include mq-max(xl) {
+                top: -80px;
+                right: 70px;
+            }
+
+            @include mq-max(md) {
+                top: -68px;
+                right: 70px;
+            }
+
+            &::before {
+                content: "\f053";
+                color: $black;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                z-index: 1;
+                font-size: 16px;
+            }
+        }
+
+        .slick-next {
+            background-color: $light-demo-4;
+            position: absolute;
+            top: -100px;
+            right: 25px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 85px;
+            }
+
+            @include mq-max(4xl) {
+                top: -90px;
+                right: 25px;
+            }
+
+            @include mq-max(xl) {
+                top: -80px;
+                right: 15px;
+            }
+
+            @include mq-max(md) {
+                top: -68px;
+                right: 15px;
+            }
+
+            &::before {
+                content: "\f054";
+                color: $black;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                z-index: 1;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .round-arrow1 {
+        z-index: 1;
+
+        .slick-prev {
+            background-color: $light-blue;
+            position: absolute;
+            top: -77px;
+            left: unset;
+            right: 85px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 25px;
+            }
+
+            @include mq-max(4xl) {
+                top: -74px;
+                right: 85px;
+            }
+
+            @include mq-max(3xl) {
+                top: -68px;
+                right: 85px;
+            }
+
+            @include mq-max(lg) {
+                top: -58px;
+                right: 70px;
+            }
+
+            @include mq-max(md) {
+                top: -50px;
+                right: 70px;
+                width: 35px;
+                height: 35px;
+            }
+
+            @include mq-max(2xs) {
+                top: -45px;
+                right: 61px;
+            }
+
+            &::before {
+                content: "\f053";
+                color: $black;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                z-index: 1;
+                font-size: 16px;
+            }
+        }
+
+        .slick-next {
+            background-color: $light-blue;
+            position: absolute;
+            top: -77px;
+            right: 25px;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 85px;
+            }
+
+            @include mq-max(4xl) {
+                top: -74px;
+                right: 25px;
+            }
+
+            @include mq-max(3xl) {
+                top: -68px;
+                right: 25px;
+            }
+
+            @include mq-max(xl) {
+                top: -65px;
+                right: 15px;
+            }
+
+            @include mq-max(lg) {
+                top: -58px;
+                right: 15px;
+            }
+
+            @include mq-max(md) {
+                top: -50px;
+                right: 15px;
+                width: 35px;
+                height: 35px;
+            }
+
+            @include mq-max(2xs) {
+                top: -45px;
+                right: 15px;
+            }
+
+            &::before {
+                content: "\f054";
+                color: $black;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                z-index: 1;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@mixin slider_3 {
+    .white-arrow {
+        .slick-prev {
+            background-color: $white;
+            @include flex_common;
+            left: -70px;
+            margin-top: -25px;
+
+            [dir="rtl"] & {
+                right: -80px;
+                left: unset;
+            }
+
+            &:active {
+                color: var(--theme-color);
+            }
+
+            @include mq-max(lg) {
+                left: unset;
+                right: 90px;
+                top: -80px;
+                width: 40px;
+                height: 40px;
+                margin-top: 0;
+
+                [dir="rtl"] & {
+                    right: unset;
+                    left: 30px;
+                }
+            }
+
+            @include mq-max(2xs) {
+                top: -58px;
+            }
+
+            &::before {
+                content: "\f053";
+                font-family: "Font Awesome 5 Free";
+                color: $black;
+                font-weight: 900;
+            }
+        }
+
+        .slick-next {
+            background-color: $white;
+            @include flex_common;
+            left: -70px;
+            margin-top: 20px;
+
+            [dir="rtl"] & {
+                right: -80px;
+                left: unset;
+            }
+
+            &:active {
+                color: var(--theme-color);
+            }
+
+            @include mq-max(lg) {
+                left: unset;
+                right: 30px;
+                top: -80px;
+                width: 40px;
+                height: 40px;
+                margin-top: 0;
+
+                [dir="rtl"] & {
+                    right: unset;
+                    left: 90px;
+                }
+            }
+
+            @include mq-max(2xs) {
+                top: -58px;
+            }
+
+            &::before {
+                content: "\f054";
+                font-family: "Font Awesome 5 Free";
+                color: $black;
+                font-weight: 900;
+            }
+        }
+    }
+}

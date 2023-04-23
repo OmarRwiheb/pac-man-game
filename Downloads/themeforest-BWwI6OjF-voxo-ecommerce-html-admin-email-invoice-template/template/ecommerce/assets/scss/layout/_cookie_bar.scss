@@ -1,0 +1,226 @@
+/**=====================
+    Cookie section css start
+==========================**/
+@mixin cookie-bar-1 {
+    .cookie-bar-section {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        max-width: 365px;
+        background: $light-blue;
+        padding: 30px;
+        border-radius: 0;
+        box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        z-index: 99;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.15);
+        opacity: 1;
+        transition: .5s ease;
+
+        &.cookiebar-left-section {
+            right: unset;
+            left: 20px;
+
+            @include mq-max(md) {
+                bottom: 10px;
+                left: 10px;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 10px;
+                }
+            }
+
+            @include mq-max(2xs) {
+                bottom: 0;
+                left: 0;
+                margin: 15px;
+                padding: 20px 10px;
+                border-radius: 7px;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 0;
+                }
+            }
+        }
+
+        [dir="rtl"] & {
+            right: unset;
+            left: 20px;
+        }
+
+        &.chair-cookiebar {
+            background-color: $light-red-shade;
+        }
+
+        @include mq-max(md) {
+            bottom: 10px;
+            right: 10px;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 10px;
+            }
+        }
+
+        @include mq-max(2xs) {
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+            padding: 20px 10px;
+            border-radius: 7px;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 0;
+            }
+        }
+
+        img {
+            max-width: calc(40px + (60 - 40) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        &::selection {
+            color: $white;
+            background: $light-yellow;
+        }
+
+        &.hide {
+            opacity: 0;
+            bottom: -350px;
+        }
+    }
+
+    .content {
+        margin-top: 10px;
+
+        h3 {
+            color: $black1;
+            font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
+            font-weight: 600;
+
+            @include mq-max(2xs) {
+                font-size: 19px;
+            }
+        }
+
+        p {
+            margin: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))) 0;
+            line-height: 1.6;
+            letter-spacing: 0.03em;
+        }
+
+        .buttons {
+            @include flex_common;
+        }
+    }
+}
+
+@mixin cookie-bar-2 {
+    .cookie-bar-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: $light-red-shade;
+        position: fixed;
+        bottom: 20px;@include center(horizontal);
+        padding: 10px 15px;
+        width: max-content;
+        border-radius: 50px;
+        z-index: 99;
+        box-shadow: 0 4px 7px rgba($black1, 0.15);
+        opacity: 1;
+        transition: .5s ease;
+
+        @include mq-max(md) {
+            bottom: 8px;
+            left: unset;
+            right: 20px;
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+            transform: none;
+            border-radius: 5px;
+            z-index: 9;
+        }
+
+        @include mq-max(xs) {
+            width: 310px;
+        }
+
+        @include mq-max(2xs) {
+            width: fit-content;
+            left: 0;
+            transform: translate(0, 0);
+            margin: 0 12px;
+        }
+
+        &.flower-cookirbar {
+            background-color: $light-blue;
+        }
+
+        &.veg-cookiebar {
+            background-color: $light-demo-7;
+        }
+
+        &.hide {
+            opacity: 0;
+            bottom: -350px;
+        }
+
+        img {
+            width: 30px;
+
+            @include mq-max(md) {
+                margin-bottom: 16px;
+            }
+
+            @include mq-max(2xs) {
+                width: 40px;
+            }
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @include mq-max(md) {
+                display: block;
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                margin: 0 18px;
+                line-height: 1.6;
+                letter-spacing: 0.03em;
+
+                @include mq-max(md) {
+                    margin: 0 0 16px;
+                }
+            }
+
+            .cookie-buttons {
+                button {
+                    padding: 10px 25px;
+                    border-radius: 50px;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        color: $white;
+                    }
+
+                    @include mq-max(md) {
+                        border-radius: 5px;
+                    }
+
+                    @include mq-max(2xs) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 23" width="26" height="23">
+	<title>Group 4-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #212529 } 
+	</style>
+	<path id="Layer" class="shp0" d="M0 0L3 0L3 3L0 3L0 0Z" />
+	<path id="Layer" class="shp0" d="M0 5L3 5L3 8L0 8L0 5Z" />
+	<path id="Layer" class="shp0" d="M0 10L3 10L3 13L0 13L0 10Z" />
+	<path id="Layer" class="shp0" d="M0 15L3 15L3 18L0 18L0 15Z" />
+	<path id="Layer" class="shp0" d="M0 20L3 20L3 23L0 23L0 20Z" />
+	<path id="Layer" class="shp0" d="M5 0L26 0L26 3L5 3L5 0Z" />
+	<path id="Layer" class="shp0" d="M5 5L26 5L26 8L5 8L5 5Z" />
+	<path id="Layer" class="shp0" d="M5 10L26 10L26 13L5 13L5 10Z" />
+	<path id="Layer" class="shp0" d="M5 15L26 15L26 18L5 18L5 15Z" />
+	<path id="Layer" class="shp0" d="M5 20L26 20L26 23L5 23L5 20Z" />
+</svg>

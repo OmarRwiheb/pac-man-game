@@ -1,0 +1,76 @@
+// utils scss files
+@import "utils/dark_variables";
+@import "utils/mixin/common";
+@import "utils/mixin/breakpoints";
+@import "utils/mixin/animation";
+
+// base scss files
+@import "base/reset";
+@import "base/typography";
+
+// components scss files
+@import "components/button";
+@import "components/alert";
+@import "components/label";
+@import "components/tab";
+@import "components/dropdown";
+@import "components/timer";
+@import "components/title";
+@import "components/tap_to_top";
+@import "components/modal";
+@import "components/ratio";
+@import "components/form";
+@import "components/slider";
+@import "components/touchspin";
+@import "components/lazyload";
+@import "components/breadcrumb";
+
+// layout scss files
+@import "layout/header";
+@include header_common;
+@include header_3;
+@import "layout/nav";
+@import "layout/slick-slider";
+@include slider_common;
+@include slider_2;
+@include slider_3;
+@import "layout/poster";
+@import "layout/arrivals";
+@include arrival_2;
+@import "layout/subscribe";
+@import "layout/service";
+@include service_common;
+@include service_style_2;
+@import "layout/product";
+@include product_common;
+@include product_style_2;
+@include product_style_3;
+@include product_style_4;
+@import "layout/category";
+@include category_common;
+@import "layout/offer";
+@include offer_common;
+@include offer_2;
+@import "layout/cookie_bar";
+@include cookie-bar-2;
+@import "layout/footer";
+
+// pages
+@import "pages/inner_page";
+@import "pages/shop_page";
+@import "pages/product_details";
+
+@import "utils/variables";
+@import "layout/home_slider";
+@include home_common;
+@include home_5;
+@import "layout/banner";
+@include banner_common;
+@include banner_2;
+
+@import "utils/dark_variables";
+
+// themes scss files
+@import "themes/rtl";
+@import "themes/responsive";
+@import "themes/dark";

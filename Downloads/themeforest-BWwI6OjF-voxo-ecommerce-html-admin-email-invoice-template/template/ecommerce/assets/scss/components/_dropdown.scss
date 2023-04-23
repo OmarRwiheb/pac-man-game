@@ -1,0 +1,97 @@
+/**=====================
+     dropdown css start
+==========================**/
+%for-animated-hover {
+    box-shadow: 3.346px 3.716px 22.5px rgba($black, 0.07);
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    right: 0;
+}
+
+.onhover-div {
+    top: 70px;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 8;
+    background-color: $white;
+    transition: all linear 0.3s;
+    min-width: 280px;
+    box-shadow: 3.346px 3.716px 22.5px rgba($black, 0.07);
+
+    li {
+        font-size: 14px;
+
+        a {
+            svg {
+                color: $theme-font-color;
+            }
+        }
+    }
+
+    &::before {
+        @include pos;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid $white;
+        top: -7px;
+        right: 10px;
+        z-index: 2;
+
+        [dir="rtl"] & {
+            right: unset;
+            left: 10px;
+        }
+    }
+}
+
+.onhover-dropdown {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        .onhover-div {
+            top: 50px;
+            opacity: 1;
+            transform: translateY(0px);
+            visibility: visible;
+
+            @include mq-max(md) {
+                width: 320px;
+            }
+        }
+    }
+
+    &.cart-dropdown {
+        button {
+            @include flex_common;
+
+            .feather {
+                width: 23px !important;
+                margin-right: 10px;
+                height: 22px;
+
+                [dir="rtl"] & {
+                    margin-right: unset;
+                    margin-left: 10px;
+                }
+
+                @include mq-max(2xs) {
+                    margin-right: 0;
+
+                    [dir="rtl"] & {
+                        margin-right: unset;
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            span {
+                font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+            }
+        }
+    }
+}

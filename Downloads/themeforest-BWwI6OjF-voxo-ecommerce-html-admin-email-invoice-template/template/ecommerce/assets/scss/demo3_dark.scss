@@ -1,0 +1,74 @@
+// utils scss files
+@import "utils/dark_variables";
+@import "utils/mixin/common";
+@import "utils/mixin/breakpoints";
+
+// base scss files
+@import "base/reset";
+@import "base/typography";
+
+// components scss files
+@import "components/button";
+@import "components/alert";
+@import "components/label";
+@import "components/tap_to_top";
+@import "components/tab";
+@import "components/dropdown";
+@import "components/timer";
+@import "components/title";
+@import "components/modal";
+@import "components/ratio";
+@import "components/form";
+@import "components/slider";
+@import "components/touchspin";
+@import "components/lazyload";
+@import "components/breadcrumb";
+
+// layout scss files
+@import "layout/header";
+@include header_common;
+@include header_1;
+@import "layout/nav";
+@import "layout/slick-slider";
+@include slider_common;
+@import "layout/poster";
+@import "layout/arrivals";
+@include arrival_1;
+@import "layout/subscribe";
+@import "layout/service";
+@include service_common;
+@import "layout/product";
+@include product_common;
+@include product_style_2;
+@import "layout/category";
+@include category_common;
+@include category_1;
+@import "layout/offer";
+@include offer_common;
+@import "layout/cookie_bar";
+@include cookie-bar-1;
+@import "layout/footer";
+
+// pages
+@import "pages/inner_page";
+@import "pages/shop_page";
+@import "pages/product_details";
+
+// Mixin scss files
+@include service_style_3;
+@import "utils/mixin/animation";
+
+
+@import "utils/variables";
+@import "layout/home_slider";
+@include home_common;
+@include home_3;
+@import "layout/banner";
+@include banner_common;
+
+
+@import "utils/dark_variables";
+// themes scss files
+@import "themes/rtl";
+@import "themes/responsive";
+@import "themes/dark";

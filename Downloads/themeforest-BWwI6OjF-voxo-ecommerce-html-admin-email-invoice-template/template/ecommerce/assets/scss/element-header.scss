@@ -1,0 +1,43 @@
+@import "utils/variables";
+
+@import "utils/mixin/common";
+@import "utils/mixin/breakpoints";
+
+@import "layout/nav";
+@import "layout/footer";
+
+@import "themes/responsive";
+
+// base scss files
+@import "base/reset";
+@import "base/typography";
+
+// pages scss files
+@import "pages/inner_page";
+
+// components scss files
+@import "components/alert";
+@import "components/breadcrumb";
+@import "components/button";
+@import "components/dropdown";
+@import "components/form";
+@import "components/label";
+@import "components/ratio";
+@import "components/slider";
+@import "components/tab";
+@import "components/tap_to_top";
+@import "components/timer";
+@import "components/title";
+@import "components/touchspin";
+
+// layout scss files
+@import "layout/header";
+@include header_common;
+@include header_1;
+@include header_2;
+@include header_3;
+@import "layout/subscribe";
+@import "layout/footer";
+
+// themes scss files
+@import "themes/responsive";

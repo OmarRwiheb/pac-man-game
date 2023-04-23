@@ -1,0 +1,61 @@
+/**=====================
+    Poster Section SCSS Start
+==========================**/
+.poster-section {
+    .poster-image {
+        height: 100%;
+        background-color: $demo1-bg;
+        position: relative;
+
+        .poster-image-details {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            width: 42%;
+            margin-right: 35px;
+            color: var(--theme-color);
+
+            @include mq-max(xs) {
+                margin-right: 6px;
+            }
+
+            @include mq-max(2xs) {
+                margin-right: 10px;
+            }
+
+            h2 {
+                font-size: calc(16px + (35 - 16) * ((100vw - 320px) / (1920 - 320)));
+                color: $black1;
+                line-height: 1.2;
+                margin-top: calc(5px + (10 - 5) * ((100vw - 320px) / (1920 - 320)));
+            }
+
+            h5 {
+                font-size: calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
+                margin-top: -2px;
+            }
+
+            p {
+                color: $light-text;
+                font-size: calc(10px + (13 - 10) * ((100vw - 320px) / (1920 - 320)));
+                font-weight: 500;
+                line-height: 1.1;
+            }
+
+            h3 {
+                font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)));
+                font-weight: bold;
+                color: $black1;
+                margin: calc(5px + (10 - 5) * ((100vw - 320px) / (1920 - 320))) 0;
+
+                span {
+                    color: var(--theme-color);
+                    font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,132 @@
+/**=====================
+    common mixins css start
+==========================**/
+
+/*======= position css starts  ======= */
+
+@mixin pos($pos: absolute, $content: "") {
+    content: $content;
+    position: $pos;
+}
+
+@mixin pseudowh($width: 100%, $height: 100%) {
+    width: $width;
+    height: $height;
+}
+
+@mixin center($position) {
+    @if $position=="vertical" {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @else if $position=="horizontal" {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @else if $position=="both" {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/*======= position css ends  ======= */
+
+/*======= display flex css starts  ======= */
+@mixin flex_common($dis: flex, $align: center, $justify: center) {
+    display: $dis;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+/*======= display flex css ends  ======= */
+
+/*======= Font-color css starts  ======= */
+$text-name: default,
+dark,
+light,
+dark-30;
+$txt-color: $theme-font-color,
+$font-dark,
+$font-light,
+$font-dark-30;
+
+@each $var in $text-name {
+    $i: index($text-name, $var);
+
+    .font-#{$var} {
+        color: nth($txt-color, $i) !important;
+    }
+}
+
+/*======= Font-color css end  ======= */
+
+/*======= buttons css starts  ======= */
+@each $btn-name,
+$btn-color in (dark, $theme-font-color),
+(light, $light-button),
+(default, var(--theme-color)) {
+    .btn-solid-#{$btn-name} {
+        color: $white;
+        background-color: unset;
+        border: 1px solid $btn-color;
+
+        &::before {
+            @include pos;
+            @include pseudowh;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: $btn-color;
+            transition: all 0.5s;
+        }
+
+        &:hover {
+            color: $theme-font-color;
+
+            &::before {
+                opacity: 0;
+                transform: scale(0.5, 0.5);
+            }
+        }
+
+        @if ($btn-name=="light") {
+            color: $white;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                color: $black;
+            }
+        }
+    }
+}
+
+/*======= buttons css end  ======= */
+
+/*======= align css starts  ======= */
+@mixin rtl($property, $ltr-value, $rtl-value) {
+    #{$property}: $ltr-value;
+
+    [dir="rtl"] & {
+        #{$property}: $rtl-value;
+    }
+}
+
+/*======= align css ends  ======= */
+
+// repeated css mixins
+@mixin back-light {
+    @include pos;
+    @include pseudowh;
+    background-color: var(--theme-color);
+    opacity: 0.1;
+    border-radius: 100%;
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+/*======= breakpoint css ends  ======= */

@@ -1,0 +1,1145 @@
+/**=====================
+     banner css start
+==========================**/
+
+@mixin banner_common {
+    .timer-banner {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .collection-banner {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+
+        .collection-contain {
+            @include mq-max(lg) {
+                background-color: rgba($color: $black, $alpha: 0.7);
+                padding: 15px 30px;
+                border-radius: 4px;
+                backdrop-filter: blur(3px);
+
+                h6,
+                h2,
+                p {
+                    color: $white !important;
+                }
+            }
+        }
+
+        .theme-color {
+            margin-top: -2px;
+        }
+
+        .contain-banner {
+            position: absolute;
+            top: 0;
+            @include pseudowh;
+            display: flex;
+            align-items: center;
+
+            &.contain-center {
+                justify-content: center;
+            }
+
+            .banner-content {
+                padding: 45px 80px;
+
+                @include mq-max(3xl) {
+                    padding: 30px 60px;
+                }
+
+                @include mq-max(2xl) {
+                    padding: 30px 40px;
+                }
+
+                @include mq-max(xl) {
+                    padding: 20px 15px;
+                }
+
+                @include mq-max(lg) {
+                    padding: 40px;
+                }
+
+                @include mq-max(sm) {
+                    padding: 30px;
+                }
+
+                @include mq-max(2xs) {
+                    padding: 20px;
+                }
+
+                &.spacing-banner {
+                    padding: 40px;
+
+                    @include mq-max(3xl) {
+                        padding: 30px;
+                    }
+
+                    @include mq-max(2xl) {
+                        padding: 30px;
+                    }
+
+                    @include mq-max(xl) {
+                        padding: 20px;
+                    }
+
+                    @include mq-max(lg) {
+                        padding: 40px;
+                    }
+
+                    @include mq-max(sm) {
+                        padding: 30px;
+                    }
+
+                    @include mq-max(2xs) {
+                        padding: 20px;
+                    }
+                }
+
+                &.with-bg {
+                    background-color: rgba($theme-font-color, 0.93);
+                    color: $white;
+
+                    h2 {
+                        margin-top: -2px;
+                    }
+
+                    h3 {
+                        margin-top: -3px;
+                    }
+
+                    span {
+                        display: block;
+                        margin-bottom: -5px;
+                    }
+                }
+
+                &.with-big {
+                    background-color: rgba($theme-font-color, 0.85);
+                    color: $white;
+
+                    h2 {
+                        margin-top: -3px;
+                    }
+                }
+
+                span {
+                    font-size: 12px;
+                    font-weight: 500;
+                    letter-spacing: 5px;
+
+                    @include mq-max(xl) {
+                        letter-spacing: 3px;
+                    }
+                }
+
+                &.t-top {
+                    h3 {
+                        margin-top: -4px;
+                    }
+                }
+            }
+        }
+
+        .banner-img {
+            height: 100%;
+        }
+
+        &.p-center {
+
+            .contain-banner,
+            .banner-text {
+                justify-content: center;
+            }
+        }
+
+        &.p-right {
+
+            .contain-banner,
+            .banner-text {
+                justify-content: flex-end;
+
+                [dir="rtl"] & {
+                    justify-content: flex-start;
+                }
+
+                h3 {
+                    margin-top: -9px;
+                }
+
+                .span-top {
+                    margin-top: -4px;
+                    display: block;
+                }
+            }
+
+            .banner-content {
+                text-align: right;
+            }
+        }
+
+        &.p-left {
+
+            .contain-banner,
+            .banner-text {
+                justify-content: flex-start;
+
+                [dir="rtl"] & {
+                    justify-content: flex-end;
+                }
+            }
+        }
+
+        &.p-bottom {
+            .contain-banner {
+                align-items: flex-end;
+            }
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 0;
+            @include pseudowh;
+            display: flex;
+            align-items: center;
+
+            .banner-content {
+                padding: 50px;
+                width: 60%;
+
+                [dir="rtl"] & {
+                    text-align: right;
+                }
+
+                &.t-top {
+                    h3 {
+                        color: $black1;
+                        margin-top: -4px;
+
+                        @include mq-max(xs) {
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+
+                @include mq-max(3xl) {
+                    padding: 30px 60px;
+                }
+
+                @include mq-max(2xl) {
+                    padding: 30px 40px;
+                }
+
+                @include mq-max(xl) {
+                    padding: 20px 15px;
+                }
+
+                @include mq-max(lg) {
+                    padding: 0 40px;
+                }
+
+                @include mq-max(sm) {
+                    padding: 0 30px;
+                }
+
+                @include mq-max(2xs) {
+                    padding: 0 10px;
+                    width: 50%;
+                }
+            }
+
+            h6 {
+                font-weight: 600;
+                margin-top: -3px;
+            }
+
+            h2 {
+                margin: calc(2px + (20 - 2) * ((100vw - 320px) / (1920 - 320))) 0;
+                font-size: calc(18px + (46 - 18) * ((100vw - 320px) / (1920 - 320)));
+                line-height: 1.32;
+                color: $black1;
+            }
+
+            h3 {
+                font-size: calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320)));
+                line-height: 1.45;
+                margin-bottom: 20px;
+
+                &.h-bottom {
+                    margin-bottom: calc(2px + (20 - 2) * ((100vw - 320px) / (1920 - 320)));
+                    margin-top: -6px;
+                    color: $black1;
+                }
+            }
+
+            .btn {
+                font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+            }
+        }
+    }
+
+    .banner-title {
+        .banner-text {
+            .banner-content {
+                width: 56%;
+
+                [dir="rtl"] & {
+                    text-align: left;
+                }
+
+                .spacing-text {
+                    margin-top: -6px;
+                    color: $black1;
+                }
+            }
+        }
+    }
+
+    .collection-center {
+        position: relative;
+        padding: 50px;
+        background-color: $demo1-bg;
+        color: $black1;
+
+        @include mq-max(3xl) {
+            padding: 40px;
+        }
+
+        @include mq-max(sm) {
+            padding: 30px;
+        }
+
+        @include mq-max(2xs) {
+            padding: 20px;
+        }
+
+        h2 {
+            line-height: 1.3;
+        }
+    }
+
+    .banner-image {
+        position: relative;
+
+        .banner-content {
+            position: absolute;
+            left: calc(20px + (60 - 20) * ((100vw - 320px) / (1920 - 320)));
+            @include center(vertical);
+            width: 40%;
+
+            h3 {
+                font-size: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
+                line-height: 1.45;
+                margin-bottom: calc(2px + (15 - 2) * ((100vw - 320px) / (1920 - 320)));
+                margin-top: calc(0px + (-6 - 0) * ((100vw - 320px) / (1920 - 320)));
+                color: var(--theme-color);
+
+                @include mq-max(md) {
+                    margin-bottom: 0;
+                }
+            }
+
+            p {
+                color: $font-light;
+                margin-bottom: 0;
+                line-height: 1.6;
+
+                @include mq-max(md) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin timer_banner {
+    .timer-banner {
+        overflow: hidden;
+
+        .round-circle {
+            position: absolute;
+            animation: rounded 10s infinite linear;
+            z-index: 0;
+            width: 90%;
+        }
+
+        .veg-image {
+            @include center(both);
+            position: absolute;
+            z-index: 1;
+        }
+
+        .social-media {
+            z-index: 1;
+            position: absolute;
+            @include center(vertical);
+            right: 15px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            display: flex;
+            align-items: center;
+
+            [dir="rtl"] & {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            [dir="rtl"] & {
+                left: 15px;
+                right: unset;
+            }
+
+            @include mq-max(2xs) {
+                bottom: 0;
+                position: absolute;
+                writing-mode: horizontal-tb;
+                top: unset;
+
+                [dir="rtl"] & {
+                    transform: translateY(-50%) rotate(0deg);
+                }
+            }
+
+            .social-icon {
+                @include flex_common;
+
+                +.social-icon {
+                    margin-top: 10px;
+
+                    [dir="rtl"] & {
+                        margin-top: 0;
+                        margin-bottom: 10px;
+                    }
+
+                    @include mq-max(2xs) {
+                        margin-top: 0;
+                        margin-left: 5px;
+
+                        [dir="rtl"] & {
+                            margin-left: 0;
+                            margin-right: 5px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+
+                img {
+                    transform: rotate(90deg);
+                    margin-bottom: 10px;
+
+                    [dir="rtl"] & {
+                        margin-top: 10px;
+                    }
+
+                    @include mq-max(2xs) {
+                        transform: rotate(0deg);
+                        margin-bottom: 0;
+                    }
+                }
+
+                h6 {
+                    font-weight: 600;
+                    font-size: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)));
+                    color: $black1;
+
+                    @include mq-max(xl) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.bg-size {
+            &::before {
+                @include mq-max(sm) {
+                    padding-top: 58%;
+                }
+
+                @include mq-max(xs) {
+                    padding-top: 64%;
+                }
+
+                @include mq-max(2xs) {
+                    padding-top: 94%;
+                }
+            }
+        }
+
+        .coupon-code {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 20px;
+            position: absolute;
+            top: 30px;
+            @include center(horizontal);
+
+            &::after {
+                @include pos;
+                @include pseudowh;
+                border: 1px dashed var(--theme-color);
+                left: 0;
+                top: 0;
+                opacity: 0.2;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 0;
+                }
+            }
+
+            @include mq-max(xl) {
+                top: 20px;
+                left: unset;
+                transform: unset;
+                right: 20px;
+            }
+
+            @include mq-max(sm) {
+                padding: 4px 10px;
+            }
+
+            @include mq-max(xs) {
+                top: 15px;
+                right: 15px;
+            }
+        }
+
+        .timer {
+            display: inline-flex;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+
+            ul {
+                padding: 30px 50px;
+
+                &.light-color {
+                    background-color: rgba(81, 152, 60, 0.7);
+                    backdrop-filter: blur(8px);
+                    color: $white;
+                }
+
+                @include mq-max(xl) {
+                    padding: 30px;
+                }
+
+                @include mq-max(md) {
+                    padding: 20px;
+                }
+
+                @include mq-max(xs) {
+                    padding: 15px;
+                }
+
+                li {
+                    h2 {
+                        margin-bottom: 6px;
+
+                        @include mq-max(xs) {
+                            margin-bottom: 2px;
+                            font-size: 20px;
+                        }
+                    }
+
+                    +li {
+                        margin-left: 80px;
+
+                        [dir="rtl"] & {
+                            margin-left: unset !important;
+                            margin-right: 80px;
+                        }
+
+                        @include mq-max(md) {
+                            margin-left: 50px;
+
+                            [dir="rtl"] & {
+                                margin-right: 50px;
+                            }
+                        }
+
+                        @include mq-max(xs) {
+                            margin-left: 30px;
+
+                            [dir="rtl"] & {
+                                margin-right: 30px;
+                            }
+                        }
+
+                        &::before {
+                            left: -42px;
+                            border-left: 2px solid rgba($white, 0.2);
+
+                            [dir="rtl"] & {
+                                left: unset !important;
+                                right: -42px;
+                                border-right: 2px solid rgba($white, 0.2);
+                                border-left: unset;
+                            }
+
+                            @include mq-max(md) {
+                                left: -28px;
+
+                                [dir="rtl"] & {
+                                    right: -28px;
+                                }
+                            }
+
+                            @include mq-max(xs) {
+                                left: -18px;
+
+                                [dir="rtl"] & {
+                                    right: -18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .discount-offer {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            position: absolute;
+            left: 30px;
+            transform: translateY(-50%) rotate(180deg);
+            z-index: 1;
+            @include center(vertical);
+            color: $black1;
+
+            [dir="rtl"] & {
+                left: unset !important;
+                right: 30px;
+                transform: translateY(-50%);
+            }
+
+            @include mq-max(xl) {
+                left: 20px;
+                top: 20px;
+                writing-mode: unset;
+                text-orientation: initial;
+                transform: rotate(0) !important;
+                transform: unset;
+
+                [dir="rtl"] & {
+                    right: unset;
+                    left: 20px !important;
+                }
+            }
+
+            @include mq-max(xs) {
+                left: 15px;
+                top: 15px;
+
+                [dir="rtl"] & {
+                    left: 15px !important;
+                    right: unset;
+                }
+            }
+
+            h5 {
+                @include mq-max(3xl) {
+                    font-size: 14px;
+                }
+
+                @include mq-max(xs) {
+                    font-size: 10px;
+                }
+            }
+
+            .wishlist-icon {
+                padding: 7px 7px 8px 4px;
+                position: relative;
+
+                [dir="rtl"] & {
+                    padding: 7px 4px 8px 7px;
+                    margin-bottom: 8px;
+                    margin-top: 0 !important;
+                }
+
+                @include mq-max(3xl) {
+                    padding: 0;
+                }
+
+                @include mq-max(xl) {
+                    padding: 4px 4px 2px;
+                    margin-top: 0 !important;
+                    margin-left: 5px;
+                }
+
+                @include mq-max(xs) {
+                    display: none;
+                }
+
+                &::after {
+                    @include pos;
+                    @include pseudowh;
+                    @include center(both);
+                    background-color: var(--theme-color);
+                    opacity: 0.1;
+                    border-radius: 100%;
+
+                    @include mq-max(3xl) {
+                        display: none;
+                    }
+
+                    @include mq-max(xl) {
+                        display: block;
+                    }
+                }
+
+                i {
+                    font-size: 13px;
+                    transform: rotate(90deg);
+
+                    @include mq-max(xl) {
+                        transform: unset;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .small-banner {
+        .collection-banner {
+            display: flex !important;
+            align-items: flex-end;
+            justify-content: center;
+            height: 100%;
+
+            @include mq-max(lg) {
+                align-items: center;
+            }
+
+            @include mq-max(xl) {
+                padding: 20px;
+            }
+
+            &.bg-size {
+                &:before {
+                    @include mq-max(xs) {
+                        padding-top: 74%;
+                    }
+
+                    @include mq-max(2xs) {
+                        padding-top: 86%;
+                    }
+                }
+            }
+        }
+    }
+
+    .banner-btn-grup {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+
+        [dir="rtl"] & {
+            left: unset;
+            right: 0;
+        }
+
+        button {
+            +button {
+                margin-left: -1px;
+
+                [dir="rtl"] & {
+                    margin-right: -1px;
+                    margin-left: unset;
+                }
+            }
+        }
+    }
+}
+
+@mixin timer_banner_style_2 {
+    .timer-banner-style-2 {
+        .timer-title {
+            font-size: calc(28px + (46 - 28) * ((100vw - 320px) / (1920 - 320)));
+            line-height: 1.32;
+            margin: 20px auto 10px;
+            width: 80%;
+        }
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        .heart-wishlist {
+            margin: 0 auto;
+        }
+
+        .timer-bg {
+            position: absolute;
+            padding: 30px;
+            left: 0;
+            z-index: 1;
+            color: $white;
+
+            &-center {
+                @include center(vertical);
+            }
+
+            &::after {
+                @include pos;
+                @include pseudowh;
+                background-color: var(--theme-color);
+                opacity: 0.8;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            span {
+                font-size: 12px;
+                letter-spacing: 5px;
+            }
+
+            h3 {
+                margin-bottom: 5px;
+            }
+        }
+
+        .timer {
+            margin-bottom: 30px;
+
+            ul {
+                background-color: transparent;
+                color: $theme-font-color;
+                z-index: 2;
+
+                li {
+                    .counter {
+                        padding: 15px 20px;
+                        background: $white;
+                        min-width: 90px;
+
+                        h2 {
+                            color: var(--theme-color);
+                            margin-bottom: 5px;
+                        }
+                    }
+
+                    +li {
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin banner_2 {
+    .banner-style-2 {
+        .collection-banner {
+            position: relative;
+            cursor: pointer;
+
+            .banner-img {
+                min-height: 390px;
+                object-fit: cover;
+
+                @include mq-max(3xl) {
+                    min-height: 330px;
+                }
+
+                @include mq-max(xl) {
+                    min-height: 300px;
+                }
+
+                @include mq-max(2xs) {
+                    min-height: 240px;
+                }
+            }
+
+            .banner-detail {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                padding: 30px;
+
+                @include mq-max(sm) {
+                    padding: 20px;
+                }
+
+                .font-dark-30 {
+                    font-weight: 800;
+                    transition: all 0.5s ease;
+                    color: $black1 !important;
+                }
+
+                .heart-wishlist {
+                    .far {
+                        color: rgba($theme-font-color, 0.6);
+                    }
+
+                    &::after {
+                        opacity: 0;
+                        transition: 0.5;
+                    }
+                }
+            }
+
+            .contain-banner {
+                top: unset;
+                bottom: 60px;
+
+                &.contain-center {
+                    top: 0;
+                    bottom: 0;
+                }
+
+                @include mq-max(xl) {
+                    bottom: 30px;
+                }
+
+                .banner-content {
+                    padding: 40px;
+                    width: calc(100% - 120px);
+                    transition: all 0.5s;
+                    backdrop-filter: blur(4px);
+
+                    &.banner-center {
+                        position: absolute;
+                        @include center(both);
+                        backdrop-filter: blur(5px);
+                    }
+
+                    @include mq-max(3xl) {
+                        padding: 30px;
+                        width: unset;
+                    }
+
+                    @include mq-max(sm) {
+                        padding: 20px;
+                    }
+
+                    span {
+                        @include mq-max(3xl) {
+                            letter-spacing: 3px;
+                        }
+                    }
+                }
+            }
+
+            &.ratio2_1 {
+                .bg-size {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+
+            &:hover {
+                .contain-banner {
+                    .banner-content {
+                        &.banner-center {
+                            backdrop-filter: blur(5px);
+                        }
+
+                        &.with-bg {
+                            background-color: var(--theme-color);
+                            opacity: 0.9;
+                            transition: all 0.5s;
+                            color: $white;
+                        }
+
+                        &.with-big {
+                            background-color: var(--theme-color);
+                            backdrop-filter: blur(5px);
+                            opacity: 0.9;
+                        }
+                    }
+                }
+
+                .banner-detail {
+                    .heart-wishlist {
+                        .far {
+                            color: var(--theme-color);
+                        }
+
+                        &::after {
+                            opacity: 0.1;
+                            transition: 0.5;
+                        }
+                    }
+
+                    .font-dark-30 {
+                        color: $theme-font-color !important;
+                        transition: all 0.5s ease;
+
+                        span {
+                            color: var(--theme-color) !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.offer-banner {
+            .collection-banner {
+                .banner-img {
+                    min-height: unset;
+                }
+
+                .contain-banner {
+                    @include center(vertical);
+                    bottom: unset;
+
+                    .banner-content {
+                        padding: 40px;
+
+                        span {
+                            letter-spacing: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin banner_3 {
+    .banner-section {
+        .banner-image {
+            position: relative;
+
+            &:hover {
+                .banner-shop {
+                    opacity: 1;
+                }
+            }
+
+            .banner-details {
+                .heart-button {
+                    position: absolute;
+                    top: 25px;
+                    left: 25px;
+                    background-color: var(--theme-color);
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    @include flex_common;
+                    animation: ripple-1 0.7s linear infinite;
+
+                    [dir="rtl"] & {
+                        left: unset;
+                        right: 25px;
+                    }
+
+                    .feather {
+                        border-radius: 50%;
+                        fill: $demo-light-4;
+                        stroke: $demo-light-4;
+                        width: 13px;
+                        height: 13px;
+                    }
+                }
+
+                h4 {
+                    position: absolute;
+                    top: 35px;
+                    right: 45px;
+                    font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
+
+                    [dir="rtl"] & {
+                        direction: rtl;
+                        right: unset;
+                        left: 45px;
+                    }
+
+                    @include mq-max(3xl) {
+                        top: 20px;
+                        right: 25px;
+
+                        [dir="rtl"] & {
+                            right: unset;
+                            left: 25px;
+                        }
+                    }
+
+                    @include mq-max(lg) {
+                        top: 15px;
+                        right: 18px;
+
+                        [dir="rtl"] & {
+                            right: unset;
+                            left: 18px;
+                        }
+                    }
+                }
+
+                .banner-price {
+                    position: absolute;
+                    bottom: 35px;
+                    right: 45px;
+                    text-align: right;
+
+                    @include mq-max(3xl) {
+                        bottom: 20px;
+                        right: 25px;
+                    }
+
+                    @include mq-max(lg) {
+                        bottom: 15px;
+                        right: 18px;
+                    }
+
+                    h2 {
+                        font-size: calc(18px + (28 - 18) * ((100vw - 320px) / (1920 - 320)));
+                        color: $black1;
+                    }
+                }
+            }
+
+            .banner-shop {
+                @include flex_common;
+                padding: 50px 30px;
+                position: absolute;
+                @include center(both);
+                background-color: rgba($demo-4, $alpha: 0.8);
+                width: 60%;
+                height: 40%;
+                backdrop-filter: blur(10px);
+                color: $white;
+                opacity: 0;
+                transition: 0.5s ease;
+                border-radius: 8px;
+
+                @include mq-max(3xl) {
+                    height: 55%;
+                }
+
+                @include mq-max(lg) {
+                    height: 40%;
+                    padding: 50px 10px;
+                }
+
+                @include mq-max(xs) {
+                    @include pseudowh;
+                    padding: 0;
+                    border-radius: 0;
+                }
+
+                p {
+                    letter-spacing: 5px;
+
+                    @include mq-max(2xl) {
+                        letter-spacing: 3px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

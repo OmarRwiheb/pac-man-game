@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="26" height="26">
+	<title>2-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #212529 } 
+	</style>
+	<path id="Layer" class="shp0" d="M0 0L8 0L8 8L0 8L0 0Z" />
+	<path id="Layer" class="shp0" d="M0 9L8 9L8 17L0 17L0 9Z" />
+	<path id="Layer" class="shp0" d="M0 18L8 18L8 26L0 26L0 18Z" />
+	<path id="Layer" class="shp0" d="M9 0L17 0L17 8L9 8L9 0Z" />
+	<path id="Layer" class="shp0" d="M9 9L17 9L17 17L9 17L9 9Z" />
+	<path id="Layer" class="shp0" d="M9 18L17 18L17 26L9 26L9 18Z" />
+	<path id="Layer" class="shp0" d="M18 0L26 0L26 8L18 8L18 0Z" />
+	<path id="Layer" class="shp0" d="M18 9L26 9L26 17L18 17L18 9Z" />
+	<path id="Layer" class="shp0" d="M18 18L26 18L26 26L18 26L18 18Z" />
+</svg>

@@ -1,0 +1,468 @@
+/**=====================
+    offer section css start
+==========================**/
+
+@mixin offer_common {
+    .discount-image-details {
+        background-color: $light-theme-color;
+        padding: calc(22px + (50 - 22) * ((100vw - 320px) / (1920 - 320))) calc(30px + (100 - 30) * ((100vw - 320px) / (1920 - 320)));
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &.discount-spacing {
+            padding: calc(50px + (180 - 50) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        @include mq-max(lg) {
+            display: block;
+        }
+
+        .discount-images {
+            margin-right: 80px;
+
+            [dir="rtl"] & {
+                margin-right: 0;
+                margin-left: 80px;
+            }
+
+            @include mq-max(lg) {
+                margin-right: 0;
+                position: relative;
+
+                [dir="rtl"] & {
+                    margin-right: 0;
+                    margin-left: 0px;
+                }
+            }
+
+            .theme-circle {
+                width: 450px;
+                height: 450px;
+                background: rgb(117, 42, 221);
+                background: radial-gradient(circle,
+                        rgba(117, 42, 221, 1) 0%,
+                        rgba(87, 46, 147, 1) 100%);
+                border-radius: 50%;
+
+                @include mq-max(2xl) {
+                    width: 420px;
+                    height: 420px;
+                }
+
+                @include mq-max(xl) {
+                    width: 340px;
+                    height: 340px;
+                }
+
+                @include mq-max(lg) {
+                    display: none;
+                }
+            }
+
+            .shoes-images-1 {
+                position: absolute;
+                top: 18%;
+                left: 59px;
+                transform: rotate(34deg);
+                width: 40%;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 130px;
+                }
+
+                @include mq-max(2xl) {
+                    top: 24%;
+                    left: 50px;
+                    width: 43%;
+                }
+
+                @include mq-max(xl) {
+                    top: 33%;
+                    left: 55px;
+                    width: 40%;
+                }
+
+                @include mq-max(lg) {
+                    position: relative;
+                    transform: rotate(0);
+                    display: block;
+                    width: 100%;
+                    left: 0;
+                    animation: run-shoes 15s infinite linear;
+
+                    [dir="rtl"] & {
+                        left: unset;
+                        right: 0 !important;
+                    }
+                }
+
+                @include mq-max(2xs) {
+                    width: 100%;
+                }
+            }
+
+            .shoes-images-2 {
+                position: absolute;
+                top: 50px;
+                left: 430px;
+                width: 20%;
+                transform: rotateY(180deg) rotate(45deg);
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 30px;
+                }
+
+                @include mq-max(2xl) {
+                    top: 90px;
+                    left: 375px;
+                    width: 18%;
+                }
+
+                @include mq-max(xl) {
+                    top: 95px;
+                    left: 325px;
+                    width: 16%;
+                }
+
+                @include mq-max(lg) {
+                    display: none;
+                }
+            }
+        }
+
+        .discunt-details {
+            @include pseudowh;
+            @include flex_common;
+            text-align: center;
+
+            @include mq-max(lg) {
+                position: relative;
+                width: 100%;
+                display: block;
+            }
+
+            .heart-button {
+                background-color: $theme-light-color;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                margin: 0 auto;
+                @include flex_common;
+
+                &-2 {
+                    background-color: $demo-light-2 !important;
+                }
+
+                &-light {
+                    background-color: $demo-light-5;
+                }
+
+                .fa-heart {
+                    margin-top: 2px;
+                }
+            }
+
+            h5 {
+                color: $black1;
+            }
+
+            .deal-text {
+                font-size: calc(22px + (45 - 22) * ((100vw - 320px) / (1920 - 320)));
+                line-height: 1.1;
+                font-weight: 900;
+                color: $black1;
+            }
+        }
+    }
+}
+
+@mixin offer_1 {
+    .discount-image-details-1 {
+        background-color: $light-demo-4;
+        padding: calc(22px + (50 - 22) * ((100vw - 320px) / (1920 - 320))) calc(30px + (100 - 30) * ((100vw - 320px) / (1920 - 320)));
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+
+        @include mq-max(lg) {
+            display: block;
+        }
+
+        .discount-images {
+            margin-right: 80px;
+
+            @include mq-max(lg) {
+                margin-right: 0;
+                position: relative;
+            }
+
+            .theme-circle {
+                width: 600px;
+                height: 600px;
+                background-color: $demo-light-4;
+                border-radius: 50%;
+                position: absolute;
+                top: -170px;
+                left: -90px;
+
+                @include mq-max(2xl) {
+                    width: 420px;
+                    height: 420px;
+                }
+
+                @include mq-max(xl) {
+                    width: 340px;
+                    height: 340px;
+                }
+
+                @include mq-max(lg) {
+                    display: none;
+                }
+            }
+
+            .shoes-images {
+                position: absolute;
+                top: 0;
+                left: 210px;
+                width: 37%;
+                transform: translateY(-5%);
+
+                @include mq-max(lg) {
+                    position: relative;
+                    display: block;
+                    width: 50%;
+                    left: 25%;
+                    animation: run-shoes 15s infinite linear;
+
+                    [dir="rtl"] & {
+                        margin: 0 auto;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .discount-shop {
+            position: absolute;
+            top: 17%;
+            transform: translateX(-50%);
+            left: 0;
+            background-color: var(--theme-color);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            user-select: none;
+            color: $white;
+            padding: calc(13px + (25 - 13) * ((100vw - 320px) / (1920 - 320)));
+
+            @include mq-max(lg) {
+                display: none;
+            }
+
+            h2 {
+                margin-right: -3px;
+            }
+
+            h6 {
+                letter-spacing: 4px;
+                margin-right: 10px;
+                margin-left: -3px;
+            }
+        }
+
+        .discunt-details {
+            @include pseudowh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+
+            h5 {
+                color: $black1;
+            }
+
+            [dir="rtl"] & {
+                justify-content: flex-start;
+            }
+
+            @include mq-max(lg) {
+                position: relative;
+                width: 100%;
+                display: block;
+            }
+
+            .heart-button {
+                background-color: $demo-light-4;
+                padding: 10px;
+                border-radius: 50%;
+                display: inline-block;
+
+                .feather {
+                    fill: var(--theme-color);
+                    stroke: var(--theme-color);
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .deal-text {
+                font-size: calc(22px + (45 - 22) * ((100vw - 320px) / (1920 - 320)));
+                line-height: 1.1;
+                font-weight: 900;
+                color: $black1;
+            }
+        }
+    }
+}
+
+@mixin offer_2 {
+    .discount-image-details-2 {
+        background-color: $light-theme-color;
+        position: relative;
+        height: 600px;
+        overflow: hidden;
+
+        @include mq-max(2xl) {
+            height: 500px;
+        }
+
+        @include mq-max(xl) {
+            height: 410px;
+        }
+
+        @include mq-max(lg) {
+            height: auto;
+            padding: calc(20px + (60 - 20) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        .discount-images {
+            margin-right: 80px;
+
+            @include mq-max(lg) {
+                margin-right: 0;
+                position: relative;
+            }
+
+            .flower-images-1 {
+                position: absolute;
+                top: -75px;
+                left: -215px;
+                transform: rotate(-70deg);
+                width: 53%;
+
+                @include mq-max(2xl) {
+                    top: -2px;
+                    left: -150px;
+                    width: 49%;
+                }
+
+                @include mq-max(xl) {
+                    top: -2px;
+                    left: -150px;
+                    width: 49%;
+                }
+
+                @include mq-max(lg) {
+                    display: none;
+                }
+            }
+
+            .flower-images-2 {
+                position: absolute;
+                top: -250px;
+                right: -330px;
+                width: 67%;
+                transform: rotate(375deg);
+
+                @include mq-max(2xl) {
+                    top: -160px;
+                    right: -235px;
+                    width: 62%;
+                }
+
+                @include mq-max(xl) {
+                    top: -160px;
+                    right: -235px;
+                    width: 62%;
+                }
+
+                @include mq-max(lg) {
+                    position: relative;
+                    transform: rotate(0);
+                    display: block;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    animation: run-shoes 15s infinite linear;
+
+                    [dir="rtl"] & {
+                        left: unset;
+                        right: 0;
+                    }
+                }
+            }
+        }
+
+        .discount-shop {
+            position: absolute;
+            @include center(vertical);
+            left: 0;
+            background-color: var(--theme-color);
+            user-select: none;
+            color: $white;
+            padding: calc(13px + (25 - 13) * ((100vw - 320px) / (1920 - 320)));
+
+            @include mq-max(lg) {
+                display: none;
+            }
+
+            h2 {
+                font-size: calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
+            }
+
+            h6 {
+                letter-spacing: calc(0px + (5 - 0) * ((100vw - 320px) / (1920 - 320)));
+                margin-top: calc(8px + (15 - 8) * ((100vw - 320px) / (1920 - 320)));
+            }
+        }
+
+        .discunt-details {
+            @include pseudowh;
+            @include flex_common;
+            text-align: center;
+
+            @include mq-max(lg) {
+                position: relative;
+                width: 100%;
+                display: block;
+            }
+
+            .heart-button {
+                padding: 15px;
+                border-radius: 50%;
+                display: inline-block;
+
+                &-light {
+                    background-color: $demo-light-5;
+                }
+
+                .feather {
+                    fill: var(--theme-color);
+                    stroke: var(--theme-color);
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .deal-text {
+                font-size: calc(22px + (45 - 22) * ((100vw - 320px) / (1920 - 320)));
+                line-height: 1.1;
+                font-weight: 900;
+            }
+        }
+    }
+}

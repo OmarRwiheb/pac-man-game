@@ -1,0 +1,49 @@
+/**=====================
+     tab css start
+==========================**/
+.tab-wrap {
+    .nav-tabs {
+        justify-content: center;
+        border-bottom: 2px solid $demo1-bg;
+
+        @include mq-max(lg) {
+            display: -webkit-box;
+            justify-content: center;
+            flex-wrap: inherit;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .nav-link {
+            font-size: calc(15px + (16 - 15) * ((100vw - 320px) / (1920 - 320)));
+            line-height: 1;
+            color: $font-light;
+            font-weight: 500;
+            padding: 0 20px 20px;
+            background: transparent;
+            border: none;
+            border-bottom: 4px solid transparent;
+
+            @include mq-max(lg) {
+                padding: 0 10px 15px;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                border: none;
+            }
+
+            &.active,
+            &:active {
+                border-bottom: 4px solid var(--theme-color);
+                color: $black1;
+            }
+        }
+    }
+
+    .tab-content {
+        margin-top: 30px;
+    }
+}

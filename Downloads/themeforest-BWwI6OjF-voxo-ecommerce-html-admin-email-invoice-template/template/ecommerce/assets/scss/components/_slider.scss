@@ -1,0 +1,601 @@
+/**=====================
+     slider css start
+==========================**/
+
+.slick-initialized {
+    .slick-arrow {
+        z-index: 1;
+        transition: 0.5s;
+
+        &:before {
+            transition: 0.5s;
+        }
+
+        &:hover {
+            transition: 0.5s;
+
+            &:before {
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+.spacing-slider {
+    &.slick-slider {
+        margin: 0 -12px;
+
+        .slick-list {
+            margin: 0 -12px;
+
+            @include mq-max(sm) {
+                margin: 0 -6px;
+            }
+
+            .slick-slide {
+                >div {
+                    margin: 0 12px;
+
+                    @include mq-max(sm) {
+                        margin: 0 6px;
+                    }
+                }
+            }
+        }
+
+        &.slick-dotted {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.slick-slider {
+    .slick-list {
+        margin: 0 -12px;
+
+        @include mq-max(sm) {
+            margin: 0 -6px;
+        }
+
+        .slick-slide {
+            >div {
+                margin: 0 12px;
+
+                @include mq-max(sm) {
+                    margin: 0 6px;
+                }
+            }
+        }
+    }
+
+    &.slick-dotted {
+        margin-bottom: 0;
+    }
+}
+
+.slide-6 {
+    .slick-list {
+        margin: 0;
+    }
+}
+
+.classic-arrow {
+    .custom-arrow {
+        position: absolute;
+        bottom: 50px;
+        z-index: 1;
+        transition: 0.5s;
+        cursor: pointer;
+
+        @include mq-max(lg) {
+            bottom: 90px;
+        }
+
+        @include mq-max(sm) {
+            bottom: 10px;
+        }
+
+        &:hover {
+            color: var(--theme-color);
+            transition: 0.5s;
+        }
+
+        i {
+            font-size: 12px;
+            vertical-align: 1px;
+
+            @include mq-max(sm) {
+                margin: 0 !important;
+                padding: 8px;
+                background-color: $white;
+
+                &:hover {
+                    background-color: var(--theme-color);
+                    color: $white;
+                }
+            }
+        }
+
+        &.prev {
+            right: 20%;
+
+            [dir="rtl"] & {
+                i {
+                    margin-right: 16px !important;
+                    margin-left: 0 !important;
+                }
+            }
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 7%;
+            }
+
+            @include mq-max(lg) {
+                right: unset;
+                left: 5%;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 5%;
+                }
+            }
+
+            @include mq-max(sm) {
+                right: 53% !important;
+                left: unset !important;
+                bottom: 20px;
+
+                [dir="rtl"] & {
+                    left: 10%;
+                    right: unset;
+                }
+            }
+
+            @include mq-max(2xs) {
+                right: 12%;
+                left: unset;
+
+                [dir="rtl"] & {
+                    left: 12%;
+                    right: unset;
+                }
+            }
+        }
+
+        &.next {
+            right: 13%;
+
+            [dir="rtl"] & {
+                i {
+                    margin-left: 16px !important;
+                    margin-right: 0 !important;
+                }
+            }
+
+            [dir="rtl"] & {
+                right: unset;
+                left: 13%;
+            }
+
+            @include mq-max(xl) {
+                right: 11%;
+
+                [dir="rtl"] & {
+                    right: unset;
+                    left: 15%;
+                }
+            }
+
+            @include mq-max(lg) {
+                right: unset;
+                left: 16%;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 16%;
+                }
+            }
+
+            @include mq-max(md) {
+                left: 20%;
+
+                [dir="rtl"] & {
+                    left: unset;
+                    right: 20%;
+                }
+            }
+
+            @include mq-max(sm) {
+                left: unset;
+                right: 3%;
+
+                [dir="rtl"] & {
+                    left: 3%;
+                    right: unset;
+                }
+            }
+
+            &::before {
+                @include pos;
+                @include pseudowh;
+                border-left: 2px solid rgba($black, 0.1);
+                left: -28px;
+                top: 0;
+
+                [dir="rtl"] & {
+                    right: 18px;
+                    left: unset;
+                }
+
+                @include mq-max(4xl) {
+                    display: none;
+                }
+            }
+        }
+
+        span {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 16px;
+
+            @include mq-max(md) {
+                font-size: 14px;
+            }
+
+            @include mq-max(sm) {
+                display: none;
+            }
+        }
+    }
+}
+
+.classic-arrow-1 {
+    .custom-arrow {
+        position: absolute;
+        bottom: 50px;
+        z-index: 1;
+        transition: 0.5s;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--theme-color);
+            transition: 0.5s;
+        }
+
+        i {
+            font-size: 12px;
+            vertical-align: 1px;
+
+            @include mq-max(sm) {
+                margin: 0 !important;
+                padding: 8px;
+                background-color: $white;
+
+                &:hover {
+                    background-color: var(--theme-color);
+                    color: $white;
+                }
+            }
+        }
+
+        &.prev {
+            right: 20%;
+
+            [dir="rtl"] & {
+                right: unset !important;
+                left: 6% !important;
+            }
+
+            @include mq-max(sm) {
+                [dir="rtl"] & {
+                    left: unset !important;
+                    right: 51% !important;
+                }
+            }
+
+            @include mq-max(xs) {
+                [dir="rtl"] & {
+                    left: unset !important;
+                    right: 52% !important;
+                }
+            }
+        }
+
+        &.next {
+            right: 13%;
+
+            [dir="rtl"] & {
+                right: unset !important;
+                left: 12% !important;
+            }
+
+            &::before {
+                @include pos;
+                @include pseudowh;
+                border-left: 2px solid rgba($black, 0.1);
+                left: -28px;
+                top: 0;
+
+                [dir="rtl"] & {
+                    right: -28px;
+                    left: unset;
+                    width: 8%;
+                }
+
+                @include mq-max(4xl) {
+                    display: none;
+                }
+            }
+
+            @include mq-max(lg) {
+                [dir="rtl"] & {
+                    left: 16% !important;
+                }
+            }
+
+            @include mq-max(sm) {
+                [dir="rtl"] & {
+                    left: unset !important;
+                    right: 13% !important;
+                }
+            }
+
+            @include mq-max(xs) {
+                [dir="rtl"] & {
+                    left: unset !important;
+                    right: 44% !important;
+                }
+            }
+        }
+
+        span {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 16px;
+
+            @include mq-max(md) {
+                font-size: 14px;
+            }
+
+            @include mq-max(sm) {
+                display: none;
+            }
+        }
+    }
+}
+
+.light-arrow,
+.white-arrow {
+    .slick-arrow {
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+
+        @include mq-max(lg) {
+            width: 30px;
+            height: 30px;
+        }
+
+        &:before {
+            font-size: 12px;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+    }
+
+    .slick-prev {
+        z-index: 1;
+
+        &:before {
+            content: "\f053";
+        }
+    }
+
+    .slick-next {
+        &:before {
+            content: "\f054";
+        }
+    }
+}
+
+.light-arrow {
+    .slick-arrow {
+        background-color: $demo1-bg;
+
+        &:before {
+            color: $theme-font-color;
+        }
+
+        &:hover {
+            background-color: var(--theme-color);
+
+            &:before {
+                color: $white;
+            }
+        }
+    }
+}
+
+.bottom-space {
+    margin-bottom: -4px;
+}
+
+.white-arrow {
+    .slick-arrow {
+        background-color: rgba($white, 0.2);
+        width: 30px;
+        height: 30px;
+
+        &:before {
+            color: $white;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $white;
+
+            &:before {
+                color: var(--theme-color);
+            }
+        }
+    }
+}
+
+.category-slider {
+    .slick-prev {
+        left: -120px;
+    }
+
+    .slick-next {
+        right: unset;
+        left: -80px;
+    }
+}
+
+.brand-image {
+    img {
+        margin: 0 auto;
+    }
+}
+
+.dot-dark {
+    .slick-dots {
+        bottom: unset;
+        width: auto;
+        @include center(vertical);
+        right: 0;
+        left: unset;
+
+        [dir="rtl"] & {
+            left: 0;
+            right: unset;
+        }
+
+        li {
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 5px;
+
+            button {
+                width: 10px;
+                height: 10px;
+                background: $theme-font-color;
+                font-size: 10px;
+                border-radius: 100%;
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.slick-active {
+                button {
+                    background-color: var(--theme-color);
+                }
+            }
+        }
+    }
+}
+
+.image-show {
+    .slick-list {
+        overflow: visible;
+        height: auto !important;
+    }
+
+    .slick-slide {
+        float: none;
+    }
+}
+
+.poster-section-6,
+.poster-section {
+    .image-show {
+        .slick-slide {
+            [dir="rtl"] & {
+                float: none;
+            }
+        }
+    }
+}
+
+.slick-lg-space {
+    .slick-list {
+        margin: -5px -18px;
+
+        @include mq-max(md) {
+            margin: -5px -10px;
+        }
+
+        .slick-slide {
+            >div {
+                margin: 5px 18px;
+
+                @include mq-max(md) {
+                    margin: 5px 10px;
+                }
+            }
+        }
+    }
+}
+
+.black-slide {
+    .slick-list {
+        .slick-track {
+            .slick-slide {
+                >div {
+                    margin: 0 5px;
+                }
+
+                &.slick-active {
+                    .play-icon {
+                        .fa-play {
+                            filter: grayscale(100%) blur(1px);
+                            opacity: 0.5;
+                        }
+
+                        &:hover {
+                            .fa-play {
+                                filter: grayscale(0);
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    img {
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    &:hover {
+                        img {
+                            filter: grayscale(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                img {
+                    filter: grayscale(20%) blur(1px);
+                    opacity: 0.8;
+                }
+
+                &.slick-center {
+                    img {
+                        filter: grayscale(0);
+                        opacity: 1;
+                    }
+
+                    .play-icon {
+                        .fa-play {
+                            filter: grayscale(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

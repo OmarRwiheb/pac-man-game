@@ -1,0 +1,196 @@
+/**=====================
+    Coming soon css start
+==========================**/
+
+.store-container {
+    line-height: 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 32%;
+
+    @include mq-max(lg) {
+        width: 40%;
+    }
+
+    @include mq-max(md) {
+        width: 60%;
+    }
+
+    @include mq-max(xs) {
+        width: 80%;
+    }
+
+    @include mq-max(2xs) {
+        width: 100%;
+    }
+
+    svg {
+        overflow: visible;
+    }
+
+    #toldo {
+        animation: fadeIn 1s 1.4s ease-in forwards;
+    }
+
+    .grass {
+        animation: fadeIn 0.5s 1.6s ease-in forwards;
+    }
+
+    #window {
+        animation: fadeIn 0.5s 1.8s ease-in forwards;
+    }
+
+    #door {
+        animation: fadeIn 0.5s 2s ease-in forwards;
+    }
+
+    #sign {
+        transform-origin: 837px 597px;
+        animation: pendulum 1.5s 2s ease-in-out alternate;
+    }
+
+    .trees {
+        animation: fadeIn 0.5s 2.2s ease-in forwards;
+    }
+
+    #browser {
+        transform: translateY(-100%);
+        animation: moveDown 1.5s cubic-bezier(0.77, -0.5, 0.3, 1.5) forwards;
+    }
+
+    .stroke {
+        stroke: var(--theme-color);
+        stroke-width: 5;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+    }
+
+    .round-end {
+        stroke-linecap: round;
+    }
+
+    #store {
+        animation: fadeIn 0.8s ease-in;
+    }
+
+    .cat {
+        transform-origin: 1145px 620px;
+    }
+
+    .cat-shadow {
+        transform-origin: 1115px 625px;
+    }
+
+    #store:hover .cat {
+        animation: catHi 3s 3s cubic-bezier(0.7, -0.5, 0.3, 1.4);
+    }
+
+    #store:hover .cat-shadow {
+        animation: catShadow 4s 2s cubic-bezier(0.7, -0.5, 0.3, 1.4) alternate;
+    }
+
+    .box,
+    .parachute {
+        transform-origin: 430px 100px;
+        animation: moveBox 14s 4s linear forwards infinite;
+    }
+
+    .parachute {
+        animation: parachute 14s 4s linear forwards infinite;
+    }
+
+    .tshirt {
+        animation: fadeInOut 42s 10s ease-in forwards infinite;
+    }
+
+    .cap {
+        animation: fadeInOut 42s 24s ease-in forwards infinite;
+    }
+
+    .ball {
+        animation: fadeInOut 42s 38s ease-in forwards infinite;
+    }
+
+    #text,
+    #button {
+        animation: fadeIn 1s 5s ease-in forwards;
+    }
+
+    .sky-circle {
+        animation: fadeInOut 10s 5s ease-in infinite;
+    }
+
+    .sky-circle2 {
+        animation: fadeInOut 12s 30s ease-in infinite;
+    }
+
+    .sky-circle3 {
+        animation: fadeInOut 8s 40s ease-in infinite;
+    }
+
+    .cloud {
+        animation: clouds 50s linear backwards infinite;
+    }
+
+    .cloud2 {
+        animation: clouds 40s 40s linear backwards infinite;
+    }
+
+    .plane {
+        animation: clouds 30s linear backwards infinite;
+        will-change: transform;
+    }
+
+    #toldo,
+    .grass,
+    #window,
+    #door,
+    .trees,
+    .cat,
+    .cat-shadow,
+    .box,
+    .parachute,
+    .tshirt,
+    .cap,
+    .ball,
+    #text,
+    #button,
+    .sky-circle,
+    .sky-circle2,
+    .sky-circle3 {
+        opacity: 0;
+    }
+}
+
+.coming-soon-content {
+    @include flex_common;
+    height: 100%;
+    text-align: center;
+
+    h1 {
+        font-size: calc(25px + (45 - 25) * ((100vw - 320px) / (1920 - 320)));
+        color: $black1;
+        margin-bottom: 16px;
+    }
+
+    p {
+        color: $font-light;
+        font-size: 16px;
+        max-width: 80%;
+        line-height: 1.5;
+        margin: 0 auto 16px;
+
+        @include mq-max(2xs) {
+            max-width: 100%;
+        }
+    }
+
+    .form-control {
+        max-width: 80%;
+        margin: 0px auto;
+
+        @include mq-max(2xs) {
+            max-width: 100%;
+        }
+    }
+}

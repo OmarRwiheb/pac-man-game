@@ -1,0 +1,94 @@
+/**=====================
+     reset css start
+==========================**/
+
+section,
+.section-t-space {
+    padding-top: 80px;
+
+    @include mq-max(3xl) {
+        padding-top: 70px;
+    }
+
+    @include mq-max(xl) {
+        padding-top: 60px;
+    }
+
+    @include mq-max(lg) {
+        padding-top: 50px;
+    }
+
+    @include mq-max(md) {
+        padding-top: 40px;
+    }
+
+    @include mq-max(sm) {
+        padding-top: 30px;
+    }
+}
+
+.section-b-space {
+    padding-bottom: 80px;
+
+    @include mq-max(3xl) {
+        padding-bottom: 70px;
+    }
+
+    @include mq-max(xl) {
+        padding-bottom: 60px;
+    }
+
+    @include mq-max(lg) {
+        padding-bottom: 50px;
+    }
+
+    @include mq-max(md) {
+        padding-bottom: 40px;
+    }
+
+    @include mq-max(sm) {
+        padding-bottom: 30px;
+    }
+}
+
+.media {
+    .media-body {
+        flex: 1;
+    }
+}
+
+.rating {
+    li {
+        i.orange {
+            color: $rating-color;
+        }
+    }
+}
+
+.g-18 {
+    margin: -18px;
+
+    >div {
+        padding: 18px;
+    }
+}
+
+.custom-gy-5 {
+    margin-top: calc(-16px + (-20 - -16) * ((100vw - 320px) / (1920 - 320)));
+    margin-bottom: calc(-16px + (-20 - -16) * ((100vw - 320px) / (1920 - 320)));
+
+    >div {
+        margin-top: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+        margin-bottom: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+    }
+}
+
+.light-gray-bg {
+    background-color: $light-blue;
+}
+
+@include mq-min(xl) {
+    .custom-col {
+        width: calc(33.33333% + 4.16%);
+    }
+}

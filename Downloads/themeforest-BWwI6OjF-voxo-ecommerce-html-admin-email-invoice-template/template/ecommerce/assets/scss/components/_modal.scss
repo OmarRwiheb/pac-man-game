@@ -1,0 +1,1034 @@
+/**=====================
+    Modal css Start
+==========================**/
+// Newletter Mdoal Start
+.newletter-modal {
+    .modal-dialog {
+        .modal-content {
+            border: none;
+            border-radius: 0;
+            background-color: $white;
+
+            .modal-header {
+                border: none;
+                padding: 0;
+                background-color: $white;
+
+                .btn-close {
+                    width: 54px;
+                    height: 54px;
+                    top: -50px;
+                    right: -50px;
+                    line-height: 54px;
+                    position: absolute;
+                    text-decoration: none;
+                    text-align: center;
+                    color: $white;
+                    background: 0 0;
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.2s linear;
+                    opacity: 1;
+
+                    @include mq-max(sm) {
+                        right: -14px;
+
+                        [dir="rtl"] & {
+                            right: unset;
+                            left: -14px;
+                        }
+                    }
+
+                    [dir="rtl"] & {
+                        right: unset;
+                        left: -50px;
+                    }
+
+                    &:before {
+                        content: "\f00d";
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            .modal-body {
+                padding: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+
+                img {
+                    position: absolute;
+                    top: -15px;
+                    right: -25px;
+                    width: 140px;
+                    transform: rotate(20deg);
+                    filter: grayscale(1);
+                    opacity: 0.5;
+                    box-shadow: 0 7px 11px rgba($black1, $alpha: 0.5);
+                    z-index: -1;
+
+                    [dir="rtl"] & {
+                        right: unset;
+                        left: -25px;
+                        transform: rotate(-20deg);
+                    }
+                }
+
+                .modal-title {
+                    h2 {
+                        color: $black1;
+                        font-weight: 500;
+                        margin-bottom: 16px;
+                    }
+
+                    ul {
+                        list-style-type: disc;
+                        padding-inline-start: 15px;
+
+                        li {
+                            display: list-item;
+                            color: $font-light;
+                            line-height: 1.7;
+
+                            &::marker {
+                                color: $black1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Video Play Modal Start
+.video-play-modal {
+    .modal-dialog {
+        .modal-content {
+            background-color: transparent;
+            border: none;
+
+            .modal-body {
+                padding: 0;
+
+                iframe {
+                    width: 100%;
+                    height: 550px;
+                }
+            }
+        }
+    }
+}
+
+// Compare Table Section Start
+.comparemodal-body {
+    .table {
+        margin-bottom: 0;
+        border: 1px solid $border-color;
+
+        &.table-striped-1 {
+            tbody {
+                tr {
+                    &:nth-of-type(odd) {
+                        background-color: transparent;
+                    }
+
+                    &:nth-of-type(even) {
+                        background-color: $light-blue;
+                    }
+                }
+            }
+        }
+
+        a {
+            color: $black1;
+        }
+
+        tr {
+            &.table-product-details {
+                border-bottom: 1px solid transparent;
+            }
+
+            &.table-cart-button {
+                td {
+                    border-top: 1px solid transparent;
+                }
+
+                a {
+                    &.btn {
+                        color: $white;
+                        font-weight: 700;
+                        font-size: 13px;
+                        padding: 6px 16px;
+                        @include flex_common;
+                        background-color: var(--theme-color);
+                        border-radius: 5px;
+
+                        &:hover {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            td {
+                border-left: 1px solid $border-color;
+                padding: 14px;
+                min-width: 230px;
+                width: 0;
+                color: $black1;
+
+                &:first-child {
+                    min-width: 270px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        ul {
+            &.list-detail {
+                padding-left: 22px;
+
+                li {
+                    font-size: 14px;
+                    color: $shade-gray;
+                    display: list-item;
+                    list-style-type: square;
+                }
+            }
+        }
+    }
+
+    .product-box {
+        .btn-close {
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .product-image {
+            text-align: center;
+
+            img {
+                @include pseudowh;
+            }
+        }
+    }
+}
+
+// Shipping Mdoal Start
+.modal-header {
+    border: none;
+    padding: 0;
+
+    .btn-close {
+        width: 54px;
+        height: 54px;
+        top: -50px;
+        right: -50px;
+        line-height: 54px;
+        position: absolute;
+        text-decoration: none;
+        text-align: center;
+        color: $white;
+        background: 0 0;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s linear;
+        opacity: 1;
+
+        @include mq-max(sm) {
+            right: -14px;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: -14px;
+            }
+        }
+
+        [dir="rtl"] & {
+            right: unset;
+            left: -50px;
+        }
+
+        &:before {
+            content: "\f00d";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 22px;
+        }
+    }
+}
+
+.shipping-modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-body {
+                padding: calc(15px + (40 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+                .modal-title {
+                    h6 {
+                        color: $nero;
+                        font-size: 16px;
+                        font-weight: 500;
+                        margin-bottom: 6px;
+                    }
+
+                    ul {
+                        list-style-type: disc;
+                        padding-inline-start: 15px;
+
+                        li {
+                            display: list-item;
+                            color: $font-light;
+                            line-height: 1.7;
+
+                            &::marker {
+                                color: $black1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Cart Modal Start
+.cart-modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                border: none;
+                padding: 0;
+
+                .btn-close {
+                    width: 54px;
+                    height: 54px;
+                    top: -50px;
+                    right: -50px;
+                    line-height: 54px;
+                    position: absolute;
+                    text-decoration: none;
+                    text-align: center;
+                    color: $white;
+                    background: 0 0;
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.2s linear;
+                    opacity: 1;
+
+                    @include mq-max(sm) {
+                        right: -14px;
+
+                        [dir="rtl"] & {
+                            right: unset;
+                            left: -14px;
+                        }
+                    }
+
+                    &:before {
+                        content: "\f00d";
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            .modal-body {
+                padding: calc(15px + (40 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+                .modal-messages {
+                    text-align: center;
+                    color: $green-dark;
+                    margin-bottom: 10px;
+                    background: $light-green;
+                    padding: 12px;
+                    width: 100%;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+
+                    @include mq-max(sm) {
+                        display: block;
+                    }
+
+                    .fa-check {
+                        font-size: 14px;
+                        margin-right: 10px;
+                        width: 25px;
+                        height: 25px;
+                        background: $green-dark;
+                        border-radius: 50%;
+                        color: $white;
+                        @include flex_common;
+
+                        @include mq-max(sm) {
+                            margin: 0 auto 12px;
+                        }
+                    }
+                }
+
+                .modal-product {
+                    display: flex;
+                    align-items: center;
+
+                    @include mq-max(sm) {
+                        display: block;
+                        border-bottom: 1px solid $gray-light;
+                        padding-bottom: 30px;
+                    }
+
+                    .modal-contain-img {
+                        @include mq-max(sm) {
+                            text-align: center;
+                            margin-bottom: calc(10px + (18 - 10) * ((100vw - 320px) / (1920 - 320)));
+                        }
+                    }
+
+                    .modal-contain-details {
+                        margin-left: 10px;
+
+                        @include mq-max(sm) {
+                            text-align: center;
+                            margin-left: 0;
+                        }
+                    }
+
+                    h5 {
+                        margin: 5px 0;
+                    }
+
+                    .modal-contain-img {
+                        img {
+                            width: 100%;
+                            max-width: 220px;
+                            height: auto;
+                            margin: 10px 0;
+
+                            @include mq-max(sm) {
+                                max-width: 60%;
+                            }
+
+                            @include mq-max(xs) {
+                                max-width: 75%;
+                            }
+
+                            @include mq-max(2xs) {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .product-total {
+                    h5 {
+                        font-weight: 400;
+
+                        span {
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .shop-cart-button {
+                    margin: -8px;
+
+                    @include mq-max(2xs) {
+                        @include flex_common;
+                    }
+
+                    .conti-button {
+                        border: 1px solid var(--theme-color);
+                        background: $white;
+                        color: var(--theme-color);
+                        margin: calc(3px + (8 - 3) * ((100vw - 320px) / (1920 - 320)));
+                        padding: calc(6px + (12 - 6) * ((100vw - 320px) / (1920 - 320))) calc(10px + (25 - 10) * ((100vw - 320px) / (1920 - 320)));
+                        font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+
+                        &:hover {
+                            background-color: var(--theme-color);
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// size modal start
+.modal-size {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                padding: 0;
+
+                button {
+                    width: 54px;
+                    height: 54px;
+                    top: -50px;
+                    right: -50px;
+                    line-height: 54px;
+                    position: absolute;
+                    text-decoration: none;
+                    text-align: center;
+                    color: $white;
+                    background: 0 0;
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.2s linear;
+                    opacity: 1;
+
+                    .fa-times {
+                        font-size: 22px;
+                    }
+
+                    @include mq-max(xs) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// size modal end
+.quick-view-modal {
+    .btn-close {
+        width: 54px;
+        height: 54px;
+        top: -50px;
+        right: -50px;
+        line-height: 54px;
+        position: absolute;
+        text-decoration: none;
+        text-align: center;
+        color: $white;
+        background: 0 0;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s linear;
+        opacity: 1;
+
+        @include mq-max(sm) {
+            right: -14px;
+
+            [dir="rtl"] & {
+                right: unset;
+                left: -14px;
+            }
+        }
+
+        &:before {
+            content: "\f00d";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 22px;
+        }
+    }
+
+    .modal-body {
+        padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+    }
+
+    .quick-view-image {
+        position: relative;
+
+        img {
+            width: 100%;
+
+            @include mq-max(lg) {
+                max-height: 400px;
+                object-fit: cover;
+            }
+        }
+
+        .quick-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+
+            .slick-slide {
+                >div {
+                    img {
+                        margin: 0;
+                        border: 1px solid $border-color;
+                        width: 40px;
+                        height: 40px;
+                        object-fit: cover;
+                    }
+                }
+
+                &.slick-current {
+                    >div {
+                        img {
+                            border: 1px solid var(--theme-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .product-right {
+        &.veg-product-right {
+            h2 {
+                font-size: 26px;
+            }
+
+            .product-details {
+                margin-top: 10px;
+            }
+
+            .product-btns {
+                a {
+                    font-size: 14px;
+                }
+            }
+
+            .price {
+                display: block;
+
+                li {
+                    width: 100%;
+
+                    .custome-form-check {
+                        width: 100%;
+                        padding: 15px 8px 15px 30px;
+                        border-radius: 4px;
+                        border: 1px solid $american-gray;
+                        transition: all 0.3s ease-in-out;
+                        box-shadow: 0 4px 10px rgba($black1, $alpha: 0.1);
+                        background: $background-color;
+                    }
+                }
+            }
+
+            .veg-details {
+                margin-top: 30px;
+                padding: 20px 0;
+                border-top: 1px dashed $border-color;
+
+                p {
+                    line-height: 1.7;
+                }
+
+                @include mq-max(lg) {
+                    margin-top: 20px;
+                }
+
+                @include mq-max(sm) {
+                    margin-top: 15px;
+                    padding: 15px 0;
+                }
+            }
+        }
+
+        h2 {
+            font-weight: 500;
+        }
+
+        h6 {
+            font-weight: 400;
+        }
+
+        h4 {
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+
+            h3 {
+                padding-right: 20px;
+
+                [dir="rtl"] & {
+                    padding-right: unset;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+        .color-types {
+            margin-top: 20px;
+            padding: 20px 0;
+            border-top: 1px dashed $border-color;
+
+            &.veg-details {
+                p {
+                    line-height: 1.7;
+                }
+            }
+
+            @include mq-max(lg) {
+                margin-top: 20px;
+            }
+
+            @include mq-max(sm) {
+                margin-top: 15px;
+                padding: 15px 0;
+            }
+        }
+
+        .size-detail {
+            padding: 20px 0;
+            border-top: 1px dashed $border-color;
+
+            @include mq-max(sm) {
+                padding: 15px 0;
+            }
+
+            ul {
+                display: flex;
+
+                li {
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    border: 1px solid $border-color;
+                    cursor: pointer;
+                    @include flex_common;
+
+                    &.selected {
+                        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+                    }
+
+                    +li {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+        .product-details {
+            padding: 20px 0;
+            border-top: 1px dashed $border-color;
+            border-bottom: 1px dashed $border-color;
+
+            @include mq-max(sm) {
+                padding: 15px 0;
+            }
+
+            ul {
+                li {
+                    display: block;
+
+                    +li {
+                        margin-top: 5px;
+                    }
+
+                    span {
+                        min-width: 150px;
+                    }
+                }
+            }
+        }
+
+        .product-btns {
+            margin-top: 20px;
+
+            @include mq-max(sm) {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+// Resert Password Modal Start
+.reset-email-modal {
+    .modal-content {
+        border: none;
+
+        .modal-header {
+            border-bottom: none;
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+            padding-bottom: 0;
+
+            .btn-close {
+                width: 54px;
+                height: 54px;
+                top: -50px;
+                right: -50px;
+                line-height: 54px;
+                position: absolute;
+                text-decoration: none;
+                text-align: center;
+                color: $white;
+                background: 0 0;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s linear;
+                opacity: 1;
+
+                @include mq-max(sm) {
+                    right: -14px;
+
+                    [dir="rtl"] & {
+                        right: unset;
+                        left: -14px;
+                    }
+                }
+
+                &:before {
+                    content: "\f00d";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .modal-body {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        .modal-footer {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+            border-top: none;
+
+            button {
+                margin: 0;
+
+                &.modal-close-button {
+                    color: $white;
+                    margin-right: 10px;
+
+                    [dir="rtl"] & {
+                        margin-right: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Delete Account Modal Start
+.delete-account-modal {
+    .modal-content {
+        border: none;
+
+        .modal-header {
+            padding: 0;
+            border: none;
+
+            .btn-close {
+                width: 54px;
+                height: 54px;
+                top: -50px;
+                right: -50px;
+                line-height: 54px;
+                position: absolute;
+                text-decoration: none;
+                text-align: center;
+                color: $white;
+                background: 0 0;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s linear;
+                opacity: 1;
+
+                @include mq-max(sm) {
+                    right: -14px;
+
+                    [dir="rtl"] & {
+                        right: unset;
+                        left: -14px;
+                    }
+                }
+
+                &:before {
+                    content: "\f00d";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .modal-body {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+            h4 {
+                font-weight: 500;
+            }
+        }
+
+        .modal-footer {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+            border-top: none;
+            padding-top: 0;
+            justify-content: flex-start;
+
+            button {
+                margin: 0;
+
+                &.modal-close-button {
+                    color: $white;
+                    margin-right: 10px;
+
+                    [dir="rtl"] & {
+                        margin-right: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Add Payment Modal Start
+.payment-modal {
+    .modal-content {
+        border: none;
+
+        .modal-header {
+            padding: 0;
+            border: none;
+
+            .btn-close {
+                width: 54px;
+                height: 54px;
+                top: -50px;
+                right: -50px;
+                line-height: 54px;
+                position: absolute;
+                text-decoration: none;
+                text-align: center;
+                color: $white;
+                background: 0 0;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s linear;
+                opacity: 1;
+
+                @include mq-max(sm) {
+                    right: -14px;
+
+                    [dir="rtl"] & {
+                        right: unset;
+                        left: -14px;
+                    }
+                }
+
+                &:before {
+                    content: "\f00d";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .modal-body {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+            h4 {
+                font-weight: 500;
+            }
+        }
+
+        .modal-footer {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+            border-top: none;
+            padding-top: 0;
+            justify-content: flex-start;
+
+            button {
+                margin: 0;
+
+                &.modal-close-button {
+                    color: $white;
+                    margin-right: 10px;
+
+                    [dir="rtl"] & {
+                        margin-right: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Add Payment Modal Start
+.add-address-modal {
+    .modal-content {
+        border: none;
+
+        .modal-header {
+            padding: 0;
+            border: none;
+
+            .btn-close {
+                width: 54px;
+                height: 54px;
+                top: -50px;
+                right: -50px;
+                line-height: 54px;
+                position: absolute;
+                text-decoration: none;
+                text-align: center;
+                color: $white;
+                background: 0 0;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s linear;
+                opacity: 1;
+
+                @include mq-max(sm) {
+                    right: -14px;
+
+                    [dir="rtl"] & {
+                        right: unset;
+                        left: -14px;
+                    }
+                }
+
+                &:before {
+                    content: "\f00d";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .modal-body {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+            h4 {
+                font-weight: 500;
+            }
+        }
+
+        .modal-footer {
+            padding: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+            border-top: none;
+            padding-top: 0;
+            justify-content: flex-start;
+
+            button {
+                margin: 0;
+
+                &.modal-close-button {
+                    color: $white;
+                    margin-right: 10px;
+
+                    [dir="rtl"] & {
+                        margin-right: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

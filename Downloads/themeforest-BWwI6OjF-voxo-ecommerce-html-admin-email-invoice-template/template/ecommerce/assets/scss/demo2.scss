@@ -1,0 +1,62 @@
+@import "utils/variables";
+@import "utils/mixin/common";
+@import "utils/mixin/breakpoints";
+@import "utils/mixin/animation";
+
+@import "base/reset";
+@import "base/typography";
+
+@import "components/button";
+@import "components/alert";
+@import "components/label";
+@import "components/tab";
+@import "components/dropdown";
+@import "components/timer";
+@import "components/tap_to_top";
+@import "components/modal";
+@import "components/title";
+@import "components/ratio";
+@import "components/form";
+@import "components/slider";
+@import "components/touchspin";
+@import "components/lazyload";
+@import "components/breadcrumb";
+
+@import "layout/header";
+@include header_common;
+@include header_2;
+@import "layout/nav";
+@import "layout/home_slider";
+@include home_common;
+@include home_2;
+@import "layout/slick-slider";
+@include slider_common;
+@include slider_3;
+@import "layout/service";
+@include service_common;
+@include service_style_2;
+@import "layout/banner";
+@include banner_common;
+@include banner_2;
+@include timer_banner_style_2;
+@import "layout/product";
+@include product_common;
+@include product_style_1;
+@include product_style_2;
+@import "layout/category";
+@include category_common;
+@include category_1;
+@import "layout/footer";
+@import "layout/cookie_bar";
+@include cookie-bar-1;
+@import "layout/subscribe";
+@import "layout/offer";
+@include offer_common;
+
+@import "pages/inner_page";
+@import "pages/shop_page";
+@import "pages/product_details";
+@import "pages/coming_soon";
+
+@import "themes/responsive";
+@import "themes/rtl";

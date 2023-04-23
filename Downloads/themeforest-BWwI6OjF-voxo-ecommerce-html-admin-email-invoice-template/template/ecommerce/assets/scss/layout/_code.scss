@@ -1,0 +1,54 @@
+/**=====================
+    Code section css start
+==========================**/
+.code-section {
+    background-image: url(../images/vegetable/852.png);
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+
+    .overlay-color {
+        @include flex_common;
+        padding: 20px 0;
+
+        .code-contain {
+            display: flex;
+            align-items: center;
+            color: $white;
+            height: 100%;
+
+            .code-image {
+                position: relative;
+                margin-right: 25px;
+
+                [dir="rtl"] & {
+                    margin-right: unset;
+                    margin-left: 25px;
+                }
+
+                img {
+                    width: 40px;
+                    animation: round 12s infinite linear;
+                }
+
+                i {
+                    @include pseudowh;
+                    @include flex_common;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: var(--theme-color);
+                    font-size: 21px;
+                }
+            }
+
+            h6 {
+                color: $white;
+
+                span {
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+}

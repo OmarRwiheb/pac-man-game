@@ -1,0 +1,352 @@
+/**=====================
+     footer css start
+==========================**/
+footer {
+    h3 {
+        @include mq-max(sm) {
+            font-size: 16px;
+        }
+    }
+
+    .main-footer {
+        border-top: 2px solid $demo1-bg;
+        border-bottom: 2px solid $demo1-bg;
+        padding: 80px 0;
+
+        @include mq-max(3xl) {
+            padding: 70px 0;
+        }
+
+        @include mq-max(xl) {
+            padding: 60px 0;
+        }
+
+        @include mq-max(lg) {
+            padding: 50px 0;
+        }
+
+        @include mq-max(md) {
+            padding: 40px 0;
+        }
+
+        @include mq-max(sm) {
+            padding: 30px 0;
+        }
+
+        .row {
+            >div {
+
+                &:first-child,
+                &:last-child {
+                    @include mq-max(lg) {
+                        order: -1;
+                    }
+
+                    @include mq-max(md) {
+                        order: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-contact {
+        padding-right: 40px;
+
+        [dir="rtl"] & {
+            padding-right: unset !important;
+            padding-left: 40px;
+        }
+
+        .brand-logo {
+            .svg-icon {
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+                animation: none;
+                transform-style: preserve-3d;
+
+                [dir="rtl"] & {
+                    margin-right: 0;
+                    margin-left: 5px;
+                }
+
+                .fill-color {
+                    fill: var(--theme-color);
+                }
+            }
+        }
+
+        @include mq-max(2xl) {
+            padding-right: 20px;
+
+            [dir="rtl"] & {
+                padding-left: 20px;
+            }
+        }
+
+        @include mq-max(lg) {
+            padding-right: 0;
+
+            [dir="rtl"] & {
+                padding-left: 0;
+            }
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        .contact-lists {
+            [dir="rtl"] & {
+                padding: 0;
+            }
+
+            li {
+                display: flex;
+                text-transform: capitalize;
+
+                &:nth-child(1) {
+                    span {
+                        margin-top: -3px;
+                    }
+                }
+
+                &:nth-child(3) {
+                    span {
+                        margin-bottom: -3px;
+                    }
+                }
+
+                span {
+                    display: inline;
+
+                    b {
+                        font-weight: 500;
+                        padding-right: 5px;
+
+                        [dir="rtl"] & {
+                            padding-right: unset;
+                            padding-left: 5px;
+                            float: right;
+                        }
+                    }
+                }
+
+                +li {
+                    margin-top: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+                    @include mq-max(lg) {
+                        margin-top: 15px;
+                    }
+
+                    @include mq-max(sm) {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-links {
+        .footer-title {
+            h3 {
+                position: relative;
+
+                &::after {
+                    @include mq-max(sm) {
+                        position: absolute;
+                        content: "\f078";
+                        font-family: "Font Awesome 5 Free";
+                        font-size: 9px;
+                        font-weight: 600;
+                        right: 0;
+                        @include center(vertical);
+                        color: $font-light;
+                        transition: 0.5s;
+
+                        [dir="rtl"] & {
+                            right: unset;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                h3 {
+                    &::after {
+                        @include mq-max(sm) {
+                            content: "\f077";
+                            transition: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-content {
+            padding-top: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        ul {
+            [dir="rtl"] & {
+                padding: 0;
+            }
+
+            li {
+                display: block;
+
+                .font-dark {
+                    &:hover {
+                        color: var(--theme-color) !important;
+                    }
+                }
+
+                +li {
+                    margin-top: 15px;
+
+                    @include mq-max(lg) {
+                        margin-top: 10px;
+                    }
+
+                    @include mq-max(sm) {
+                        margin-top: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-newsletter {
+        h3 {
+            margin-bottom: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+        }
+
+        p {
+            line-height: 1.6;
+            letter-spacing: .03em;
+        }
+
+        .input-group {
+            input {
+                border-radius: 0;
+                position: relative;
+                border: none;
+                background-color: $demo1-bg;
+                color: $font-dark;
+
+                &.color-4 {
+                    background-color: $light-red-shade;
+                }
+            }
+
+            .input-group-text {
+                padding: 6px 16px;
+                background-color: var(--theme-color);
+                border: 1px solid var(--theme-color);
+                color: $white;
+                border-radius: 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .footer-number {
+        display: flex;
+        align-items: center;
+
+        .footer-number-image {
+            background-color: $light-theme-color;
+            @include flex_common;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+
+            [dir="rtl"] & {
+                margin-right: 0;
+                margin-left: 20px;
+            }
+
+            img {
+                width: 20px;
+            }
+        }
+
+        .footer-number-container {
+            h3 {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .footer-details {
+        margin-top: calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+    }
+
+    .sub-footer {
+        padding: calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320))) 0;
+
+        @include mq-max(md) {
+            text-align: center;
+        }
+
+        .row {
+            align-items: center;
+        }
+
+        ul {
+            [dir="rtl"] & {
+                padding: 0;
+            }
+
+            li {
+                +li {
+                    margin-left: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+
+                    [dir="rtl"] & {
+                        margin-left: unset !important;
+                        margin-right: calc(15px + (30 - 15) * ((100vw - 320px) / (1920 - 320)));
+                    }
+
+                    @include mq-max(lg) {
+                        margin-left: 10px;
+
+                        [dir="rtl"] & {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        p {
+            text-align: right;
+
+            [dir="rtl"] & {
+                text-align: left;
+            }
+
+            @include mq-max(md) {
+                text-align: center;
+
+                [dir="rtl"] & {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.footer-sm-space {
+    @include mq-max(sm) {
+        margin-bottom: 80px;
+    }
+}
